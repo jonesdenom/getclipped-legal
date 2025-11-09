@@ -1,36 +1,138 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Privacy Policy - getClipped</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>getClipped – Privacy Policy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: radial-gradient(circle at center, #090010 0%, #040006 55%, #020003 100%);
+      --accent: #ff00c8;
+      --text: #fff;
+      --muted: rgba(255, 220, 255, 0.7);
+      --card: rgba(7, 0, 12, 0.6);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .top-logo {
+      text-align: center;
+      padding: 2.5rem 1.5rem 1rem;
+    }
+    .top-logo img {
+      height: 70px;
+      filter: drop-shadow(0 0 18px rgba(255, 0, 200, 0.7));
+    }
+    .page {
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1rem 1.5rem 3rem;
+    }
+    h1 {
+      font-size: 2.1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .meta {
+      font-size: 0.7rem;
+      color: rgba(255, 220, 255, 0.55);
+      margin-bottom: 1.5rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255, 0, 200, 0.15);
+      border-radius: 18px;
+      padding: 1.25rem 1.25rem 1.5rem;
+      backdrop-filter: blur(10px);
+    }
+    h2 {
+      font-size: 1rem;
+      margin-top: 1.1rem;
+      margin-bottom: 0.35rem;
+    }
+    p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-top: 0.2rem;
+    }
+    ul {
+      margin: 0.4rem 0 0.6rem 1.1rem;
+      padding: 0;
+    }
+    li {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 0.25rem;
+    }
+    a {
+      color: #ff74ff;
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+    footer {
+      text-align: center;
+      padding: 0 1.5rem 2.5rem;
+      color: rgba(255, 200, 255, 0.4);
+      font-size: 0.65rem;
+      margin-top: auto;
+    }
+  </style>
 </head>
 <body>
-  <h1>Privacy Policy</h1>
-  <p>Last updated: October 2, 2025</p>
+  <div class="top-logo">
+    <a href="/"><img src="watermark.png" alt="getClipped logo"></a>
+  </div>
 
-  <p>HypeClipper ("we", "our", or "us") values your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use our service.</p>
+  <main class="page">
+    <h1>Privacy Policy</h1>
+    <div class="meta">Last updated: November 9, 2025</div>
 
-  <h2>Information We Collect</h2>
-  <ul>
-    <li>OAuth tokens from platforms such as YouTube and TikTok (to enable uploading on your behalf).</li>
-    <li>Basic profile information provided by those platforms (such as user ID and channel/account name).</li>
-    <li>Uploaded video files you submit for publishing.</li>
-  </ul>
+    <div class="card">
+      <p>getClipped values your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use our service.</p>
 
-  <h2>How We Use Your Information</h2>
-  <ul>
-    <li>To upload your clips to YouTube and TikTok under your authenticated account.</li>
-    <li>To track clip counts for your usage statistics.</li>
-    <li>To maintain and improve our service.</li>
-  </ul>
+      <h2>Information We Collect</h2>
+      <p>We only collect the minimum information needed to let you log in and use the app.</p>
+      <ul>
+        <li>Google OAuth tokens (if you sign in with Google)</li>
+        <li>or your email address (if you sign up with email)</li>
+      </ul>
 
-  <h2>Data Security</h2>
-  <p>We store OAuth tokens securely in our database. Tokens are never shared with third parties and are used only for uploads you authorize.</p>
+      <h2>How We Use Your Information</h2>
+      <p>We use this information <strong>purely for account creation and authentication</strong> on our service. An account is required to use getClipped.</p>
 
-  <h2>Your Rights</h2>
-  <p>You may revoke access at any time by removing getClipped from your authorized apps on YouTube or TikTok.</p>
+      <h2>Data Security</h2>
+      <p>
+        We store OAuth tokens securely in our database.<br />
+        Tokens are never sold or shared with third parties.<br />
+        Tokens are used only to verify that it’s really you logging in.
+      </p>
 
-  <h2>Contact Us</h2>
-  <p>If you have questions, email us at: support@getclipped.app</p>
+      <h2>Your Rights</h2>
+      <p>
+        You can revoke getClipped’s access to your Google account at any time by removing it from your authorized apps in your Google account settings.
+      </p>
+
+      <h2>Contact Us</h2>
+      <p>
+        If you have questions about this policy or how your data is handled, email us at:
+        <a href="mailto:jonesdenom@gmail.com">jonesdenom@gmail.com</a>
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <a href="/">Back to getClipped</a>
+  </footer>
 </body>
 </html>
