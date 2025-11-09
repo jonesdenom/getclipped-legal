@@ -52,6 +52,7 @@
       padding-top: 1rem;
     }
 
+    /* kept for compatibility, even if not used now */
     .eyebrow {
       display: inline-block;
       background: rgba(255, 0, 200, 0.08);
@@ -63,6 +64,24 @@
       letter-spacing: 0.05rem;
       margin-bottom: 1.5rem;
       color: #ffd6ff;
+    }
+
+    /* NEW: platform icons row to replace eyebrow text */
+    .platform-icons {
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .platform-icons img {
+      height: 44px;
+      width: auto;
+      filter: drop-shadow(0 0 8px rgba(255, 0, 200, 0.55));
+      transition: transform 0.15s ease, filter 0.2s ease;
+    }
+    .platform-icons img:hover {
+      transform: scale(1.06);
+      filter: drop-shadow(0 0 14px rgba(255, 0, 200, 0.9));
     }
 
     .hero-title {
@@ -214,6 +233,7 @@
       .hero-left { margin: 0 auto; }
       .feature-card { margin: 3rem auto 0; transform: none; }
       .hero-socials { justify-content: center; }
+      .platform-icons { justify-content: center; }
       .top-logo img { height: 110px; }
       .hero-title { font-size: 3rem; }
       .hero-text { font-size: 1.1rem; margin: 1rem auto; }
@@ -227,7 +247,12 @@
 
   <div class="hero-wrap">
     <div class="hero-left">
-      <div class="eyebrow">streamers • creators • live</div>
+      <div class="platform-icons">
+        <img src="twitch.svg" alt="Twitch">
+        <img src="kick-streaming-platform-logo-icon.svg" alt="Kick">
+        <img src="youtube.svg" alt="YouTube">
+        <img src="tiktok.svg" alt="TikTok">
+      </div>
       <h1 class="hero-title">More Views. <span>Zero Effort.</span></h1>
       <p class="hero-text">
         The fastest clip creator — capture moments live and get them clipped, captioned, and ready to post within 2 minutes!
@@ -245,4 +270,84 @@
 
     <div class="feature-card" aria-label="Free vs Paid features">
       <div class="feature-header">
-        <div>Feature</div><div style="text-align:center;">Free</div><div style="
+        <div>Feature</div>
+        <div style="text-align:center;">Free</div>
+        <div style="text-align:center;">Paid</div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-name">1 button clip creation</div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-name">Upload to any platform</div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-name">Voice activated (OBS only)</div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-name">Uses your stream layout</div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-name">6 clips per day</div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+        <div class="feature-col"><span class="cross">×</span></div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-name">Watermark ON</div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+        <div class="feature-col"><span class="cross">×</span></div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-name">Customise branding</div>
+        <div class="feature-col"><span class="cross">×</span></div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-name">Custom transition screen</div>
+        <div class="feature-col"><span class="cross">×</span></div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-name">Use your own fonts</div>
+        <div class="feature-col"><span class="cross">×</span></div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-name">Custom caption colours</div>
+        <div class="feature-col"><span class="cross">×</span></div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-name">Watermark removed</div>
+        <div class="feature-col"><span class="cross">×</span></div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-name">20 clips per day</div>
+        <div class="feature-col"><span class="cross">×</span></div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="legal">
+    <a href="/privacy.html">Privacy Policy</a> •
+    <a href="/terms.html">Terms of Service</a> •
+    <a href="mailto:jonesdenom@gmail.com">Contact: jonesdenom@gmail.com</a>
+  </div>
+
+  <footer>© <span id="year"></span> getClipped</footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
