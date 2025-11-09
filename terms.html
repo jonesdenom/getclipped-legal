@@ -1,35 +1,147 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Terms of Service - getClipped</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>getClipped – Terms of Service</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: radial-gradient(circle at center, #090010 0%, #040006 55%, #020003 100%);
+      --accent: #ff00c8;
+      --text: #fff;
+      --muted: rgba(255, 220, 255, 0.7);
+      --card: rgba(7, 0, 12, 0.6);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .top-logo {
+      text-align: center;
+      padding: 2.5rem 1.5rem 1rem;
+    }
+    .top-logo img {
+      height: 70px;
+      filter: drop-shadow(0 0 18px rgba(255, 0, 200, 0.7));
+    }
+    .page {
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1rem 1.5rem 3rem;
+    }
+    h1 {
+      font-size: 2.1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .meta {
+      font-size: 0.7rem;
+      color: rgba(255, 220, 255, 0.55);
+      margin-bottom: 1.5rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255, 0, 200, 0.15);
+      border-radius: 18px;
+      padding: 1.25rem 1.25rem 1.5rem;
+      backdrop-filter: blur(10px);
+    }
+    h2 {
+      font-size: 1rem;
+      margin-top: 1.1rem;
+      margin-bottom: 0.35rem;
+    }
+    p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-top: 0.2rem;
+    }
+    ol {
+      margin: 0.6rem 0 0.6rem 1.1rem;
+      padding: 0;
+    }
+    li {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 0.45rem;
+    }
+    a {
+      color: #ff74ff;
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+    footer {
+      text-align: center;
+      padding: 0 1.5rem 2.5rem;
+      color: rgba(255, 200, 255, 0.4);
+      font-size: 0.65rem;
+      margin-top: auto;
+    }
+  </style>
 </head>
 <body>
-  <h1>Terms of Service</h1>
-  <p>Last updated: October 2, 2025</p>
+  <div class="top-logo">
+    <a href="/"><img src="watermark.png" alt="getClipped logo"></a>
+  </div>
 
-  <h2>1. Acceptance of Terms</h2>
-  <p>By using getClipped, you agree to these Terms of Service. If you do not agree, you may not use our service.</p>
+  <main class="page">
+    <h1>Terms of Service</h1>
+    <div class="meta">Last updated: October 2, 2025</div>
 
-  <h2>2. Service Description</h2>
-  <p>getClipped allows users to upload video clips to supported platforms (YouTube, TikTok) via OAuth authentication.</p>
+    <div class="card">
+      <ol>
+        <li>
+          <strong>Acceptance of Terms</strong><br>
+          By using getClipped, you agree to these Terms of Service. If you do not agree, you may not use our service.
+        </li>
 
-  <h2>3. User Responsibilities</h2>
-  <ul>
-    <li>You are responsible for ensuring you have the rights to upload any content you submit.</li>
-    <li>You may not use getClipped to upload prohibited or illegal content.</li>
-  </ul>
+        <li>
+          <strong>Service Description</strong><br>
+          getClipped allows users to instantly create captioned, vertical formatted short form content in under 2 minutes.
+        </li>
 
-  <h2>4. Accounts and Authentication</h2>
-  <p>By authenticating with YouTube or TikTok, you grant us permission to use your tokens solely for uploading videos you request.</p>
+        <li>
+          <strong>User Responsibilities</strong><br>
+          You are responsible for ensuring you have the rights to upload any content you submit.<br>
+          You may not use getClipped to upload prohibited or illegal content.
+        </li>
 
-  <h2>5. Limitation of Liability</h2>
-  <p>We provide getClipped "as is" without warranties of any kind. We are not liable for damages arising from use of the service.</p>
+        <li>
+          <strong>Accounts and Authentication</strong><br>
+          By authenticating with Google, you grant us permission to use your tokens solely for account creation on our database.
+        </li>
 
-  <h2>6. Termination</h2>
-  <p>We may suspend or terminate accounts that violate these terms.</p>
+        <li>
+          <strong>Limitation of Liability</strong><br>
+          We provide getClipped "as is" without warranties of any kind. We are not liable for damages arising from use of the service.
+        </li>
 
-  <h2>7. Contact</h2>
-  <p>For questions about these Terms, contact us at: support@getclipped.app</p>
+        <li>
+          <strong>Termination</strong><br>
+          We may suspend or terminate accounts that violate these terms.
+        </li>
+
+        <li>
+          <strong>Contact</strong><br>
+          For questions about these Terms, contact us at:
+          <a href="mailto:jonesdenom@gmail.com">jonesdenom@gmail.com</a>
+        </li>
+      </ol>
+    </div>
+  </main>
+
+  <footer>
+    <a href="/">Back to getClipped</a>
+  </footer>
 </body>
 </html>
