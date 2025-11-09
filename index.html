@@ -11,10 +11,13 @@
       --accent: #ff00c8;
       --text: #fff;
       --muted: rgba(255, 220, 255, 0.7);
-      --tab-bg: rgba(7, 0, 12, 0.5);
-      --tab-border: rgba(255, 0, 200, 0.25);
+      --card: rgba(7, 0, 12, 0.4);
+      --border: rgba(255, 0, 200, 0.12);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       background: var(--bg);
       color: var(--text);
@@ -40,7 +43,7 @@
     .hero-wrap {
       max-width: 900px;
       margin: 0 auto;
-      padding: 0 2rem 3.5rem;
+      padding: 0 2rem 2.5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -136,63 +139,63 @@
       margin-top: 1.5rem;
     }
 
-    /* tabs */
-    .tabs {
+    /* scroll tabs (navbar style) */
+    .tabs-inline {
       max-width: 900px;
       margin: 0 auto;
       padding: 0 2rem 2.5rem;
-    }
-    .tab-buttons {
       display: flex;
-      justify-content: center;
       gap: 1rem;
-      margin-bottom: 1.5rem;
+      justify-content: center;
       flex-wrap: wrap;
     }
-    .tab-button {
+    .tabs-inline a {
       background: rgba(255, 0, 200, 0.03);
       border: 1px solid rgba(255, 0, 200, 0.18);
       border-radius: 999px;
       padding: 0.6rem 1.6rem;
       color: #fff;
       font-weight: 600;
-      cursor: pointer;
+      text-decoration: none;
       transition: background 0.15s ease, box-shadow 0.15s ease;
     }
-    .tab-button.active {
+    .tabs-inline a:hover {
       background: radial-gradient(circle at top, #ff00c8 0%, #9b00ff 80%);
-      box-shadow: 0 0 20px rgba(255, 0, 200, 0.4);
+      box-shadow: 0 0 15px rgba(255, 0, 200, 0.4);
     }
-    .tab-panel {
-      display: none;
-      background: rgba(7, 0, 12, 0.45);
-      border: 1px solid rgba(255, 0, 200, 0.08);
+
+    /* sections below */
+    .page-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 2.5rem;
+      text-align: left;
+    }
+    .section-card {
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 20px;
       padding: 1.5rem 1.4rem 1.4rem;
-      text-align: left;
-      color: rgba(255, 220, 255, 0.65);
       backdrop-filter: blur(10px);
     }
-    .tab-panel.active {
-      display: block;
-    }
-    .tab-panel h2 {
-      font-size: 1.2rem;
-      margin-bottom: 0.9rem;
-      color: #fff;
+    .page-section h2 {
       text-align: center;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: #fff;
     }
-    .tab-panel ul {
+    .page-section ul {
       margin-left: 1.2rem;
-      margin-top: 0.2rem;
     }
-    .tab-panel li {
+    .page-section li {
       margin-bottom: 0.5rem;
       line-height: 1.5;
+      color: rgba(255, 220, 255, 0.75);
+      font-size: 0.98rem;
     }
-    .tab-panel p {
+    .page-section p {
       line-height: 1.6;
-      font-size: 0.95rem;
+      color: rgba(255, 220, 255, 0.75);
     }
 
     .legal {
@@ -218,7 +221,7 @@
     @media (max-width: 720px) {
       .hero-text { font-size: 1.15rem; }
       .top-logo img { height: 160px; }
-      .tab-panel { text-align: left; }
+      .page-section { text-align: left; }
     }
   </style>
 </head>
@@ -249,47 +252,55 @@
     <div class="hero-subnote">No credit card • 6 clips/day on free • OBS voice commands</div>
   </div>
 
-  <!-- tabs -->
-  <div class="tabs">
-    <div class="tab-buttons">
-      <button class="tab-button active" data-tab="features">Features</button>
-      <button class="tab-button" data-tab="howto">How to use</button>
-      <button class="tab-button" data-tab="upgrade">Upgrade</button>
-    </div>
+  <!-- scroll tabs -->
+  <div class="tabs-inline">
+    <a href="#features">Features</a>
+    <a href="#howto">How to use</a>
+    <a href="#upgrade">Upgrade</a>
+  </div>
 
-    <div id="features" class="tab-panel active">
-      <h2>Features included</h2>
+  <!-- FEATURES SECTION -->
+  <section id="features" class="page-section">
+    <div class="section-card">
+      <h2>Features</h2>
       <ul>
-        <li>1-button live clip capture while you’re streaming.</li>
-        <li>Auto vertical formatting for TikTok, Reels, Shorts.</li>
-        <li>Auto captions + hook creation.</li>
-        <li>Upload to Twitch, Kick, YouTube, TikTok, Instagram (export ready).</li>
-        <li>OBS voice commands (hands free).</li>
-        <li>Uses your stream layout so clips look like your brand.</li>
+        <li>1-button live clip capture while you’re still streaming.</li>
+        <li>Auto vertical formatting for TikTok, Reels, and YouTube Shorts.</li>
+        <li>Automatic captions and hook creation.</li>
+        <li>Uses your stream layout so clips stay on-brand.</li>
+        <li>Upload/export to social platforms in seconds.</li>
+        <li>OBS voice commands for completely hands-free clipping.</li>
       </ul>
     </div>
+  </section>
 
-    <div id="howto" class="tab-panel">
+  <!-- HOW TO USE SECTION -->
+  <section id="howto" class="page-section">
+    <div class="section-card">
       <h2>How to use getClipped</h2>
-      <p><strong>1.</strong> Download / open the desktop app.<br>
-         <strong>2.</strong> Connect your streaming setup (OBS recommended).<br>
-         <strong>3.</strong> While streaming, hit the clip button or say the voice trigger.<br>
-         <strong>4.</strong> getClipped auto-edits: vertical → captions → hook → preview.<br>
-         <strong>5.</strong> Approve and post it to your socials in under 2 minutes.</p>
+      <ul>
+        <li>Download/open the desktop app</li>
+        <li>Go to settings, match your recording folder & replay buffer folder with your OBS/Streamlabs recording folder</li>
+        <li>Now whenever you make a recording under 2 minutes long it'll come back to you as an edited clip!</li>
+        <li>Preview your clip in the app’s upload tab!</li>
+      </ul>
     </div>
+  </section>
 
-    <div id="upgrade" class="tab-panel">
-      <h2>Upgrade to Pro</h2>
-      <p>Go from casual clipping to fully branded content:</p>
+  <!-- UPGRADE SECTION -->
+  <section id="upgrade" class="page-section">
+    <div class="section-card">
+      <h2>Upgrade</h2>
+      <p>Unlock the full power of getClipped:</p>
       <ul>
         <li>Remove watermark.</li>
         <li>20 clips per day.</li>
-        <li>Custom branding, fonts, and transition screen.</li>
+        <li>Custom branding, fonts, transitions.</li>
         <li>Custom caption highlight colours.</li>
       </ul>
-      <p>Perfect for streamers posting daily across multiple platforms.</p>
+      <p>Perfect for streamers posting daily to TikTok, Instagram, YouTube Shorts, and Kick.</p>
     </div>
-  </div>
+  </section>
 
   <div class="legal">
     <a href="/privacy.html">Privacy Policy</a> •
@@ -301,19 +312,6 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    const buttons = document.querySelectorAll('.tab-button');
-    const panels = document.querySelectorAll('.tab-panel');
-
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const target = btn.getAttribute('data-tab');
-        buttons.forEach(b => b.classList.remove('active'));
-        panels.forEach(p => p.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById(target).classList.add('active');
-      });
-    });
   </script>
 </body>
 </html>
