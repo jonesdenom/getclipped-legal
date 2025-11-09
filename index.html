@@ -237,6 +237,55 @@
       font-size: 1rem;
     }
 
+    /* feature table styles */
+    .feature-table {
+      overflow-x: auto;
+      margin-top: 1.5rem;
+    }
+    .feature-table table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1.02rem;
+    }
+    .feature-table th,
+    .feature-table td {
+      padding: 1rem 1rem;
+      border-bottom: 1px solid rgba(255, 0, 200, 0.15);
+    }
+    .feature-table th {
+      text-align: left;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #ffbaff;
+      font-size: 0.95rem;
+      border-bottom: 2px solid rgba(255, 0, 200, 0.3);
+    }
+    .feature-table td {
+      color: rgba(255, 220, 255, 0.85);
+    }
+    .feature-table th:nth-child(2),
+    .feature-table th:nth-child(3),
+    .feature-table td:nth-child(2),
+    .feature-table td:nth-child(3) {
+      text-align: center;
+      width: 110px;
+    }
+    .feature-table .tick {
+      color: #42ff9e;
+      font-weight: 800;
+      font-size: 1.2rem;
+    }
+    .feature-table .cross {
+      color: #ff4d6a;
+      font-weight: 800;
+      font-size: 1.2rem;
+    }
+    .feature-table .text-value {
+      color: #ffbaff;
+      font-weight: 800;
+      font-size: 1.05rem;
+    }
+
     .legal {
       text-align: center;
       padding: 3rem 1.5rem 2rem;
@@ -280,6 +329,12 @@
         padding-bottom: 4rem;
       }
       #home .top-logo img { height: 170px; }
+      .feature-table th:nth-child(2),
+      .feature-table th:nth-child(3),
+      .feature-table td:nth-child(2),
+      .feature-table td:nth-child(3) {
+        width: 80px;
+      }
     }
   </style>
 </head>
@@ -332,14 +387,74 @@
       <div class="page-section">
         <div class="section-card">
           <h2>Features</h2>
-          <ul>
-            <li>1-button live clip capture while you’re still streaming.</li>
-            <li>Automatic vertical formatting for TikTok, Reels, and Shorts.</li>
-            <li>Captioning + hook creation baked in.</li>
-            <li>Uses your stream layout so clips stay on-brand.</li>
-            <li>Export / upload flow designed for creators.</li>
-            <li>Hands-free mode with OBS voice commands.</li>
-          </ul>
+          <div class="feature-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>Free</th>
+                  <th>Paid</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1 Button Clips made while live streaming</td>
+                  <td class="tick">✓</td>
+                  <td class="tick">✓</td>
+                </tr>
+                <tr>
+                  <td>Automatic vertical formatting of your stream clip (TikTok, Reels & Shorts)</td>
+                  <td class="tick">✓</td>
+                  <td class="tick">✓</td>
+                </tr>
+                <tr>
+                  <td>Captions, Hook & Stinger Transition baked in</td>
+                  <td class="tick">✓</td>
+                  <td class="tick">✓</td>
+                </tr>
+                <tr>
+                  <td>Uses your personalised stream layout</td>
+                  <td class="tick">✓</td>
+                  <td class="tick">✓</td>
+                </tr>
+                <tr>
+                  <td>Export/Upload straight to socials from our app</td>
+                  <td class="tick">✓</td>
+                  <td class="tick">✓</td>
+                </tr>
+                <tr>
+                  <td>(OBS Only) – Voice activated clipping and recording</td>
+                  <td class="tick">✓</td>
+                  <td class="tick">✓</td>
+                </tr>
+                <tr>
+                  <td>Clips per day</td>
+                  <td class="text-value">6</td>
+                  <td class="text-value">20</td>
+                </tr>
+                <tr>
+                  <td>Customise with your own fonts</td>
+                  <td class="cross">×</td>
+                  <td class="tick">✓</td>
+                </tr>
+                <tr>
+                  <td>Use your own custom transition/stinger for personal branding</td>
+                  <td class="cross">×</td>
+                  <td class="tick">✓</td>
+                </tr>
+                <tr>
+                  <td>Customise with your own caption highlight colours</td>
+                  <td class="cross">×</td>
+                  <td class="tick">✓</td>
+                </tr>
+                <tr>
+                  <td>No watermark</td>
+                  <td class="cross">×</td>
+                  <td class="tick">✓</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </section>
