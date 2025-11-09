@@ -222,15 +222,6 @@
       margin-bottom: 1.2rem;
       color: #fff;
     }
-    .page-section ul {
-      margin-left: 1.2rem;
-    }
-    .page-section li {
-      margin-bottom: 0.75rem;
-      line-height: 1.55;
-      color: rgba(255, 220, 255, 0.8);
-      font-size: 1.05rem;
-    }
     .page-section p {
       line-height: 1.6;
       color: rgba(255, 220, 255, 0.75);
@@ -286,6 +277,62 @@
       font-size: 1.1rem;
     }
 
+    /* how-to tabs */
+    .howto-tabs {
+      display: flex;
+      gap: 0.6rem;
+      margin-bottom: 1.4rem;
+    }
+    .howto-tab {
+      background: rgba(255,0,200,0.03);
+      border: 1px solid rgba(255,0,200,0.1);
+      color: #fff;
+      border-radius: 999px;
+      padding: 0.5rem 1.3rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.1s ease-out;
+      font-size: 0.95rem;
+    }
+    .howto-tab.active {
+      background: radial-gradient(circle, rgba(255,0,200,0.9) 0%, rgba(155,0,255,0.4) 70%);
+      border-color: rgba(255,0,200,0.9);
+      box-shadow: 0 0 12px rgba(255,0,200,0.4);
+    }
+    .howto-content {
+      display: none;
+    }
+    .howto-content.active {
+      display: block;
+    }
+    .howto-content ol {
+      margin-left: 1.3rem;
+    }
+    .howto-content li {
+      margin-bottom: 1.4rem;
+      color: rgba(255,220,255,0.83);
+      line-height: 1.6;
+      font-size: 1.02rem;
+    }
+    .howto-img-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 0.7rem;
+    }
+    .howto-img {
+      max-width: 360px;
+      width: 100%;
+      border: 1px solid rgba(255,0,200,0.3);
+      border-radius: 16px;
+      background: rgba(0,0,0,0.4);
+    }
+    .howto-subtle {
+      font-size: 0.9rem;
+      color: rgba(255,220,255,0.5);
+      margin-top: 0.3rem;
+    }
+
     .legal {
       text-align: center;
       padding: 3rem 1.5rem 2rem;
@@ -337,6 +384,8 @@
       .feature-table td:nth-child(3) {
         width: 80px;
       }
+      .howto-img { max-width: 100%; }
+      .howto-tabs { flex-wrap: wrap; }
     }
   </style>
 </head>
@@ -370,7 +419,7 @@
         </div>
         <h1 class="hero-title">More Views. <span>Zero Effort.</span></h1>
         <p class="hero-text">
-          Capture moments live and get them clipped, captioned, and ready to post in under 2 minutes!
+          The fastest clip creator — capture moments live and get them clipped, captioned, and ready to post within 2 minutes!
         </p>
         <div class="hero-socials">
           <span>Upload to</span>
@@ -380,7 +429,7 @@
           <div class="social-icon"><img src="tiktok.svg" alt="TikTok"></div>
         </div>
         <a href="#" class="btn-primary">TRY NOW FOR FREE</a>
-        <div class="hero-subnote">No credit card • 3 clips/day on free • OBS voice commands</div>
+        <div class="hero-subnote">No credit card • 6 clips/day on free • OBS voice commands</div>
       </div>
     </section>
 
@@ -431,7 +480,7 @@
                 </tr>
                 <tr>
                   <td>Clips per day</td>
-                  <td class="text-value">3</td>
+                  <td class="text-value">6</td>
                   <td class="text-value">20</td>
                 </tr>
                 <tr>
@@ -466,12 +515,49 @@
       <div class="page-section">
         <div class="section-card">
           <h2>How to use getClipped</h2>
-          <ul>
-            <li>Download/open the desktop app.</li>
-            <li>Go to <strong>Settings</strong>, match your recording folder & replay buffer folder with your OBS/Streamlabs recording folder.</li>
-            <li>Now whenever you make a recording under 2 minutes long it'll come back to you as an edited clip!</li>
-            <li>Preview your clip in the app’s <strong>Upload</strong> tab!</li>
-          </ul>
+
+          <!-- tabs for platforms -->
+          <div class="howto-tabs">
+            <button class="howto-tab active" data-howto-target="obs">OBS Studio</button>
+          </div>
+
+          <!-- OBS tab content -->
+          <div id="howto-obs" class="howto-content active">
+            <p>
+              This is a one-time setup. The goal is to make sure getClipped and OBS Studio both save recordings/replays to the exact same folders.
+            </p>
+            <ol>
+              <li>
+                <strong>Step 1:</strong> In the getClipped app, go to <em>Settings → Recording & Replay Folders</em> and choose your recording folder.  
+                Match this with your OBS Studio <em>Output → Recording → Recording Path</em>.
+                <div class="howto-img-row">
+                  <img src="getclippedrecordingspath.png" alt="getClipped recording path" class="howto-img">
+                  <img src="obsrecordingspath.png" alt="OBS recording path" class="howto-img">
+                </div>
+              </li>
+              <li>
+                <strong>Step 2:</strong> Do the same for <em>Replay Buffer</em> inside getClipped. For OBS this will usually be the same path you used in step 1.
+              </li>
+              <li>
+                <strong>Step 3:</strong> Make sure OBS Replay Buffer is <em>enabled and running</em>. You’ll see it highlighted blue under your controls.  
+                Set “Maximum replay time” to how long you want the clips (e.g. 20s → 20 second clips, up to 120s).
+                <div class="howto-img-row">
+                  <img src="obsreplaybuffer1.png" alt="OBS replay buffer settings" class="howto-img">
+                  <img src="obsreplaybuffer2.png" alt="OBS replay buffer running" class="howto-img">
+                </div>
+              </li>
+              <li>
+                <strong>Step 4:</strong> Start clipping! Whenever you save a replay or stop a short recording, getClipped will detect it, edit it and send it back to your app so you can preview and upload.
+              </li>
+            </ol>
+
+            <p class="howto-subtle"><strong>Optional (recommended):</strong> set hotkeys so clipping is just one button.</p>
+            <div class="howto-img-row">
+              <img src="obsreplaybuffer3hotkey.png" alt="OBS hotkey settings" class="howto-img">
+              <img src="obsreplaybuffer4rechotkey.png" alt="OBS replay buffer hotkey" class="howto-img">
+            </div>
+          </div>
+          <!-- future platform tabs can be added here -->
         </div>
       </div>
     </section>
@@ -535,8 +621,24 @@
         }
       });
     });
+
+    // how-to tabs (only one for now, but set up for more)
+    const howtoTabs = document.querySelectorAll(".howto-tab");
+    const howtoContents = document.querySelectorAll(".howto-content");
+
+    howtoTabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        const target = tab.getAttribute("data-howto-target");
+        howtoTabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        howtoContents.forEach(c => {
+          c.classList.remove("active");
+          if (c.id === "howto-" + target) {
+            c.classList.add("active");
+          }
+        });
+      });
+    });
   </script>
 </body>
 </html>
-
-
