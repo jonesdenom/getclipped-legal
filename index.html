@@ -81,7 +81,6 @@
       min-height: 100vh;
     }
 
-    /* every section should fill the screen */
     .section-full {
       min-height: 100vh;
       display: flex;
@@ -201,6 +200,82 @@
       margin-top: 1.6rem;
     }
 
+    /* sections below hero */
+    .page-section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 3.4rem;
+      text-align: left;
+      width: 100%;
+    }
+    .section-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 2.2rem 2.1rem 1.9rem;
+      backdrop-filter: blur(10px);
+    }
+    .page-section h2 {
+      text-align: center;
+      font-size: 1.9rem;
+      margin-bottom: 1.2rem;
+      color: #fff;
+    }
+    .page-section p {
+      line-height: 1.6;
+      color: rgba(255, 220, 255, 0.75);
+      font-size: 1.05rem;
+    }
+
+    /* feature table styles */
+    .feature-table {
+      overflow-x: auto;
+      margin-top: 1.8rem;
+    }
+    .feature-table table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1.05rem;
+    }
+    .feature-table th,
+    .feature-table td {
+      padding: 1.05rem 1.05rem;
+      border-bottom: 1px solid rgba(255, 0, 200, 0.15);
+    }
+    .feature-table th {
+      text-align: left;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #ffbaff;
+      font-size: 1rem;
+      border-bottom: 2px solid rgba(255, 0, 200, 0.3);
+    }
+    .feature-table td {
+      color: rgba(255, 220, 255, 0.85);
+    }
+    .feature-table th:nth-child(2),
+    .feature-table th:nth-child(3),
+    .feature-table td:nth-child(2),
+    .feature-table td:nth-child(3) {
+      text-align: center;
+      width: 130px;
+    }
+    .feature-table .tick {
+      color: #42ff9e;
+      font-weight: 800;
+      font-size: 1.25rem;
+    }
+    .feature-table .cross {
+      color: #ff4d6a;
+      font-weight: 800;
+      font-size: 1.25rem;
+    }
+    .feature-table .text-value {
+      color: #ffbaff;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
     /* how-to tabs */
     .howto-tabs {
       display: flex;
@@ -223,9 +298,15 @@
       border-color: rgba(255,0,200,0.9);
       box-shadow: 0 0 12px rgba(255,0,200,0.4);
     }
-    .howto-content { display: none; }
-    .howto-content.active { display: block; }
-    .howto-content ol { margin-left: 1.3rem; }
+    .howto-content {
+      display: none;
+    }
+    .howto-content.active {
+      display: block;
+    }
+    .howto-content ol {
+      margin-left: 1.3rem;
+    }
     .howto-content li {
       margin-bottom: 1.4rem;
       color: rgba(255,220,255,0.83);
@@ -233,13 +314,20 @@
       font-size: 1.02rem;
     }
 
-    iframe {
+    /* video */
+    .howto-video {
       width: 100%;
-      height: 420px;
-      border: none;
+      max-width: 780px;
+      margin: 0 auto 1.8rem;
       border-radius: 16px;
+      overflow: hidden;
       box-shadow: 0 0 20px rgba(255,0,200,0.2);
-      margin-bottom: 1.8rem;
+      aspect-ratio: 16/9;
+    }
+    .howto-video iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     .legal {
@@ -261,16 +349,44 @@
       font-size: 0.9rem;
     }
 
+    /* mobile */
     @media (max-width: 880px) {
       body { flex-direction: column; }
-      .sidebar { width: 100%; flex-direction: row; gap: 0.6rem; justify-content: center; border-right: none; border-bottom: 1px solid rgba(255,0,200,0.1); }
+      .sidebar {
+        position: relative;
+        width: 100%;
+        flex-direction: row;
+        gap: 0.6rem;
+        justify-content: center;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,0,200,0.1);
+      }
       .sidebar-logo { display: none; }
-      .main { margin-left: 0; width: 100%; }
-      iframe { height: 280px; }
+      .side-link { text-align: center; }
+      .main {
+        margin-left: 0;
+        width: 100%;
+      }
+      .section-full {
+        min-height: auto;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
+      #home .top-logo img { height: 170px; }
+      .hero-wrap,
+      .page-section { padding: 0 1.4rem; max-width: 100%; }
+      .feature-table th:nth-child(2),
+      .feature-table th:nth-child(3),
+      .feature-table td:nth-child(2),
+      .feature-table td:nth-child(3) {
+        width: 80px;
+      }
+      .howto-tabs { flex-wrap: wrap; }
     }
   </style>
 </head>
 <body>
+  <!-- sidebar -->
   <aside class="sidebar">
     <div class="sidebar-logo">
       <img src="watermark.png" alt="getClipped logo">
@@ -283,10 +399,13 @@
     <div class="sidebar-footer">© <span id="year-side"></span> getClipped</div>
   </aside>
 
+  <!-- main -->
   <main class="main">
     <!-- HOME -->
     <section id="home" class="section-full">
-      <div class="top-logo"><img src="watermark.png" alt="getClipped logo"></div>
+      <div class="top-logo">
+        <img src="watermark.png" alt="getClipped logo">
+      </div>
       <div class="hero-wrap">
         <div class="platform-icons">
           <img src="twitch.svg" alt="Twitch">
@@ -295,7 +414,9 @@
           <img src="tiktok.svg" alt="TikTok">
         </div>
         <h1 class="hero-title">More Views. <span>Zero Effort.</span></h1>
-        <p class="hero-text">Capture moments live and get them clipped, captioned, and ready to post in under 2 minutes!</p>
+        <p class="hero-text">
+          Capture moments live and get them clipped, captioned, and ready to post in under 2 minutes!
+        </p>
         <div class="hero-socials">
           <span>Upload to</span>
           <div class="social-icon"><img src="x.svg" alt="X / Twitter"></div>
@@ -313,7 +434,74 @@
       <div class="page-section">
         <div class="section-card">
           <h2>Features</h2>
-          <!-- existing feature table remains unchanged -->
+          <div class="feature-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>Free</th>
+                  <th>Paid</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1 Button Clips made while live streaming</td>
+                  <td class="tick">✓</td>
+                  <td class="tick">✓</td>
+                </tr>
+                <tr>
+                  <td>Automatic vertical formatting of your stream clip (TikTok, Reels & Shorts)</td>
+                  <td class="tick">✓</td>
+                  <td class="tick">✓</td>
+                </tr>
+                <tr>
+                  <td>Captions, Hook & Stinger Transition baked in</td>
+                  <td class="tick">✓</td>
+                  <td class="tick">✓</td>
+                </tr>
+                <tr>
+                  <td>Uses your personalised stream layout</td>
+                  <td class="tick">✓</td>
+                  <td class="tick">✓</td>
+                </tr>
+                <tr>
+                  <td>Export/Upload straight to socials from our app</td>
+                  <td class="tick">✓</td>
+                  <td class="tick">✓</td>
+                </tr>
+                <tr>
+                  <td>(OBS Only) – Voice activated clipping and recording</td>
+                  <td class="tick">✓</td>
+                  <td class="tick">✓</td>
+                </tr>
+                <tr>
+                  <td>Clips per day</td>
+                  <td class="text-value">3</td>
+                  <td class="text-value">20</td>
+                </tr>
+                <tr>
+                  <td>Customise with your own fonts</td>
+                  <td class="cross">×</td>
+                  <td class="tick">✓</td>
+                </tr>
+                <tr>
+                  <td>Use your own custom transition/stinger for personal branding</td>
+                  <td class="cross">×</td>
+                  <td class="tick">✓</td>
+                </tr>
+                <tr>
+                  <td>Customise with your own caption highlight colours</td>
+                  <td class="cross">×</td>
+                  <td class="tick">✓</td>
+                </tr>
+                <tr>
+                  <td>No watermark</td>
+                  <td class="cross">×</td>
+                  <td class="tick">✓</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </section>
@@ -327,18 +515,20 @@
             <button class="howto-tab active" data-howto-target="obs">OBS Studio</button>
           </div>
           <div id="howto-obs" class="howto-content active">
-            <iframe src="https://www.youtube.com/embed/Bv-rg9cLJhg" title="OBS Studio setup with getClipped" allowfullscreen></iframe>
+            <div class="howto-video">
+              <iframe src="https://www.youtube.com/embed/Bv-rg9cLJhg" title="OBS Studio setup with getClipped" allowfullscreen></iframe>
+            </div>
             <p>
               This is a one-time setup. The goal is to make sure getClipped and OBS Studio both save recordings/replays to the exact same folders.
             </p>
             <ol>
-              <li>In getClipped, go to <strong>Settings → Recording & Replay Folders</strong> and set your recording folder.</li>
-              <li>Match this with your OBS Studio recording path under <strong>Output → Recording → Recording Path</strong>.</li>
-              <li>Repeat the same for <strong>Replay Buffer</strong> (usually the same folder).</li>
-              <li>Ensure the <strong>Replay Buffer</strong> is active (blue highlight under your stream controls).</li>
-              <li>Start clipping! Any replay or short recording you make will automatically be edited and returned to the app.</li>
+              <li>In the getClipped app, go to <strong>Settings → Recording & Replay Folders</strong> and set your recording folder to the same one OBS uses.</li>
+              <li>In OBS Studio, under <strong>Output → Recording → Recording Path</strong> pick that same folder.</li>
+              <li>Do the same for Replay Buffer (for most people this is the exact same folder).</li>
+              <li>Make sure OBS Replay Buffer is enabled and running (blue highlight). Set the max replay time to however long you want your clips (up to 120s).</li>
+              <li>Start clipping — every replay/short recording that lands in that folder will be auto-edited and show up in your getClipped app to preview and upload.</li>
             </ol>
-            <p><strong>Optional:</strong> Set up hotkeys in OBS for starting/stopping recordings and saving replays to make the process one button.</p>
+            <p><strong>Optional (recommended):</strong> set up OBS hotkeys for “Save Replay” / “Start-Stop Recording” so it’s truly 1-button.</p>
           </div>
         </div>
       </div>
@@ -377,22 +567,48 @@
 
     const links = document.querySelectorAll(".side-link");
     const sections = ["#home", "#features", "#howto", "#upgrade"].map(sel => document.querySelector(sel));
+
     links.forEach(link => {
       link.addEventListener("click", () => {
         const target = link.getAttribute("data-target");
         const el = document.querySelector(target);
-        if (el) window.scrollTo({ top: el.offsetTop, behavior: "smooth" });
+        if (el) {
+          window.scrollTo({
+            top: el.offsetTop,
+            behavior: "smooth"
+          });
+        }
         links.forEach(l => l.classList.remove("active"));
         link.classList.add("active");
       });
     });
+
     window.addEventListener("scroll", () => {
       const scrollPos = window.scrollY + 150;
       sections.forEach((sec, idx) => {
+        if (!sec) return;
         if (scrollPos >= sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight) {
           links.forEach(l => l.classList.remove("active"));
           links[idx].classList.add("active");
         }
+      });
+    });
+
+    // how-to tabs (ready for more later)
+    const howtoTabs = document.querySelectorAll(".howto-tab");
+    const howtoContents = document.querySelectorAll(".howto-content");
+
+    howtoTabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        const target = tab.getAttribute("data-howto-target");
+        howtoTabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        howtoContents.forEach(c => {
+          c.classList.remove("active");
+          if (c.id === "howto-" + target) {
+            c.classList.add("active");
+          }
+        });
       });
     });
   </script>
