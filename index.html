@@ -3,329 +3,265 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>getClipped – Instant Shorts While Live</title>
+  <title>getClipped – Instant Clips While Live</title>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: radial-gradient(circle at center, #0A0013 0%, #050007 100%);
+      --bg: radial-gradient(circle at center, #090010 0%, #040006 100%);
       --accent: #ff00c8;
-      --white: #ffffff;
-      --muted: rgba(255, 200, 255, 0.7);
+      --text: #fff;
+      --muted: rgba(255, 220, 255, 0.7);
+      --card: rgba(7, 0, 12, 0.55);
+      --line: rgba(255, 0, 200, 0.15);
+      --green: #42ff9e;
+      --red: #ff4d6a;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       background: var(--bg);
-      color: var(--white);
+      color: var(--text);
       font-family: "Share Tech Mono", monospace;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-
     header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(5, 0, 7, 0.8);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 0, 200, 0.25);
+      padding: 1.1rem 1.25rem 0.75rem;
+      display: flex;
+      justify-content: center;
     }
-    .nav {
-      max-width: 1200px;
+    .hero {
+      max-width: 900px;
       margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.75rem 1.25rem;
+      text-align: center;
+      padding: 2.5rem 1.25rem 2rem;
     }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+    .hero img {
+      height: 64px;
+      filter: drop-shadow(0 0 12px rgba(255, 0, 200, 0.7));
+      margin-bottom: 1.75rem;
     }
-    .brand img {
-      height: 42px;
-      filter: drop-shadow(0 0 10px var(--accent));
-      user-select: none;
+    .hero-title {
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
     }
-    .brand span {
+    .hero-title span {
+      color: #ff8fff;
+    }
+    .hero p {
+      color: var(--muted);
       font-size: 0.8rem;
-      color: #ffc8ff;
-      text-shadow: 0 0 6px var(--accent);
-      letter-spacing: 1px;
-    }
-    .nav-links {
-      display: flex;
-      gap: 0.75rem;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .nav-links a {
-      color: var(--white);
-      text-decoration: none;
-      padding: 0.4rem 0.75rem;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      transition: 0.2s;
-    }
-    .nav-links a:hover {
-      background: rgba(255, 0, 200, 0.15);
-      box-shadow: 0 0 12px rgba(255, 0, 200, 0.3);
+      margin-bottom: 1.3rem;
     }
     .btn-primary {
-      background: linear-gradient(90deg, #ff00c8 0%, #a200ff 100%);
-      border: 1px solid rgba(255, 0, 200, 0.5);
+      background: linear-gradient(90deg, #ff00c8 0%, #9b00ff 100%);
+      border: 1px solid rgba(255, 0, 200, 0.4);
       border-radius: 999px;
-      padding: 0.4rem 1.2rem;
+      padding: 0.6rem 1.4rem;
       font-size: 0.75rem;
       color: #fff;
-      box-shadow: 0 0 12px rgba(255, 0, 200, 0.55);
-      cursor: pointer;
       text-decoration: none;
-      transition: transform 0.15s ease-out;
+      display: inline-block;
+      box-shadow: 0 0 14px rgba(255, 0, 200, 0.4);
+      transition: transform 0.1s ease-out;
     }
     .btn-primary:hover { transform: translateY(-1px); }
 
-    .hero {
-      max-width: 1200px;
+    /* Feature compare box */
+    .features {
+      max-width: 900px;
       margin: 0 auto;
-      padding: 3.5rem 1.25rem 3rem;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 2.5rem;
-      align-items: center;
-    }
-    .hero-left small {
-      display: inline-block;
-      margin-bottom: 1rem;
-      background: rgba(255, 0, 200, 0.1);
-      border: 1px solid rgba(255, 0, 200, 0.4);
-      padding: 0.35rem 1rem;
-      border-radius: 999px;
-      font-size: 0.7rem;
-      color: #ffc8ff;
-      text-transform: uppercase;
-    }
-    .hero-left h1 {
-      font-size: clamp(2.4rem, 3.6vw, 3.3rem);
-      line-height: 1.1;
-      margin-bottom: 1rem;
-      text-shadow: 0 0 25px rgba(255, 0, 200, 0.12);
-    }
-    .hero-left h1 span { color: #ff66ff; }
-    .hero-left p {
-      max-width: 520px;
-      color: var(--muted);
-      font-size: 0.85rem;
-      line-height: 1.6;
-      margin-bottom: 1.6rem;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2.5rem 1.25rem;
-    }
-    .section-title {
-      font-size: 1.6rem;
-      margin-bottom: 1.7rem;
-      text-shadow: 0 0 20px rgba(255, 0, 200, 0.12);
-    }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
-      gap: 1.1rem;
+      padding: 1rem 1.25rem 2.5rem;
     }
     .feature-card {
-      background: rgba(10, 0, 25, 0.5);
-      border: 1px solid rgba(255, 0, 200, 0.22);
-      border-radius: 16px;
-      padding: 1rem 1rem 1.25rem;
-      box-shadow: 0 0 15px rgba(255, 0, 200, 0.07);
-    }
-    .feature-card h3 { font-size: 0.85rem; margin-bottom: 0.35rem; }
-    .feature-card p { font-size: 0.68rem; color: var(--muted); line-height: 1.5; }
-    .plans {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-    .plan-card {
-      background: rgba(5, 0, 7, 0.35);
-      border: 1px solid rgba(255, 0, 200, 0.2);
+      background: var(--card);
+      border: 1px solid rgba(255, 0, 200, 0.18);
       border-radius: 18px;
-      padding: 1.2rem 1.1rem 1.4rem;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
     }
-    .plan-card.highlight {
-      border: 1px solid rgba(255, 0, 200, 0.7);
-      box-shadow: 0 0 25px rgba(255, 0, 200, 0.18);
-      background: radial-gradient(circle at top, rgba(255, 0, 200, 0.15), rgba(5, 0, 7, 0.25));
+    .feature-header {
+      display: grid;
+      grid-template-columns: 1.2fr 0.4fr 0.4fr;
+      background: rgba(5, 0, 10, 0.35);
+      border-bottom: 1px solid rgba(255, 0, 200, 0.09);
+      padding: 0.7rem 1rem;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04rem;
     }
-    .plan-badge {
-      font-size: 0.6rem;
-      background: rgba(255, 0, 200, 0.13);
-      border: 1px solid rgba(255, 0, 200, 0.4);
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      display: inline-block;
-      margin-bottom: 0.7rem;
-      color: #ffc8ff;
-    }
-    .plan-title { font-size: 1rem; margin-bottom: 0.2rem; }
-    .plan-desc { font-size: 0.65rem; color: var(--muted); margin-bottom: 0.9rem; }
-    .plan-list {
-      list-style: none;
-      padding: 0;
-      margin-bottom: 1rem;
-    }
-    .plan-list li {
-      display: flex;
+    .feature-row {
+      display: grid;
+      grid-template-columns: 1.2fr 0.4fr 0.4fr;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
       align-items: center;
-      font-size: 0.68rem;
-      margin-bottom: 0.4rem;
+      font-size: 0.7rem;
+      border-bottom: 1px solid rgba(255, 0, 200, 0.03);
     }
-    .plan-dot {
-      width: 15px;
-      height: 15px;
-      border-radius: 4px;
-      background: rgba(255, 0, 200, 0.3);
-      border: 1px solid rgba(255, 0, 200, 0.5);
-      margin-right: 0.4rem;
+    .feature-row:last-child {
+      border-bottom: none;
+      margin-bottom: 0.3rem;
     }
-    footer {
-      padding: 2rem 1.25rem;
-      background: rgba(10, 0, 25, 0.6);
-      border-top: 1px solid rgba(255, 0, 200, 0.2);
-      color: rgba(255, 200, 255, 0.6);
+    .feature-name {
+      text-align: left;
+      color: rgba(255, 255, 255, 0.85);
+    }
+    .feature-col {
       text-align: center;
-      font-size: 0.75rem;
     }
-    footer a {
-      color: #ff66ff;
+    .tick, .cross {
+      display: inline-flex;
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.55rem;
+      font-weight: bold;
+    }
+    .tick {
+      background: rgba(66, 255, 158, 0.12);
+      border: 1px solid rgba(66, 255, 158, 0.6);
+      color: var(--green);
+    }
+    .cross {
+      background: rgba(255, 77, 106, 0.12);
+      border: 1px solid rgba(255, 77, 106, 0.6);
+      color: var(--red);
+    }
+
+    /* Legal & footer */
+    .legal {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.25rem 2rem;
+      text-align: center;
+    }
+    .legal a {
+      color: #ff8fff;
       text-decoration: none;
-      margin: 0 0.5rem;
+      font-size: 0.65rem;
+      margin: 0 0.4rem;
     }
-    footer a:hover { text-decoration: underline; }
-    @media (max-width: 960px) {
-      .hero { grid-template-columns: 1fr; text-align: center; }
-      .hero-actions { justify-content: center; }
+    .legal a:hover { text-decoration: underline; }
+    footer {
+      text-align: center;
+      padding: 1.75rem 1.25rem 2.5rem;
+      color: rgba(255, 200, 255, 0.4);
+      font-size: 0.6rem;
+    }
+
+    @media (max-width: 680px) {
+      .feature-header,
+      .feature-row {
+        grid-template-columns: 1fr 60px 60px;
+      }
+      .hero-title { font-size: 1.85rem; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <nav class="nav">
-      <div class="brand">
-        <img src="watermark.png" alt="getClipped logo" />
-        <span>LIVE CLIPPER</span>
-      </div>
-      <div class="nav-links">
-        <a href="#features">Features</a>
-        <a href="#plans">Plans</a>
-        <a href="#legal">Legal</a>
-        <a href="#contact">Contact</a>
-        <a href="#" class="btn-primary">Try now for FREE!</a>
-      </div>
-    </nav>
-  </header>
+  <header></header>
 
-  <main>
-    <section class="hero" id="top">
-      <div class="hero-left">
-        <small>Streaming? Clip it automatically.</small>
-        <h1>Get Clipped — <span>Instant Shorts</span> WITH ZERO EDITING while STILL LIVE!</h1>
-        <p>
-          Your stream is happening now — so should your content. getClipped listens, captures and exports clips 
-          to your socials in seconds, even voice-activated (OBS only).  
-          <br><br>Upload directly to <strong>Twitter (X)</strong>, <strong>Instagram</strong>, <strong>YouTube</strong>, and <strong>TikTok</strong> — no editing required.
-        </p>
-        <div class="hero-actions">
-          <a href="#" class="btn-primary">Try now for FREE!</a>
-          <span style="font-size:0.65rem;color:var(--muted);">No credit card • 6 clips/day on free</span>
-        </div>
+  <!-- HERO -->
+  <section class="hero">
+    <img src="watermark.png" alt="getClipped logo">
+    <h1 class="hero-title">
+      CREATE INSTANT CLIPS WITH 1 BUTTON<br>
+      <span>WHILE STILL LIVE STREAMING</span>
+    </h1>
+    <p>Try now for FREE! Clip → brand → upload to Twitter (X), Instagram, YouTube, TikTok.</p>
+    <a href="#" class="btn-primary">TRY NOW FOR FREE</a>
+  </section>
+
+  <!-- FEATURE COMPARISON -->
+  <section class="features" aria-label="Free vs Paid features">
+    <div class="feature-card">
+      <div class="feature-header">
+        <div>Feature</div>
+        <div style="text-align:center;">Free</div>
+        <div style="text-align:center;">Paid</div>
       </div>
-      <div class="hero-right" aria-label="App preview">
-        <img src="watermark.png" alt="getClipped Preview" style="width:100%;opacity:0.6;filter:drop-shadow(0 0 15px var(--accent));border-radius:16px;">
+
+      <!-- shared / free features -->
+      <div class="feature-row">
+        <div class="feature-name">1 button clip creation</div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+        <div class="feature-col"><span class="tick">✓</span></div>
       </div>
-    </section>
-
-    <section id="features">
-      <h2 class="section-title">What it does</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <h3>1 button clip creation</h3>
-          <p>Hit once, get a polished short. No timeline, no editor.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Works on all streaming platforms</h3>
-          <p>Twitch, YouTube Live, Kick, Facebook — if you stream it, we clip it.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Voice activated (OBS only)</h3>
-          <p>Say your trigger, get a clip. Keep playing, we do the rest.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Upload to all socials</h3>
-          <p>Instant upload to Twitter (X), Instagram, YouTube, and TikTok.</p>
-        </div>
+      <div class="feature-row">
+        <div class="feature-name">Upload to any platform</div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+        <div class="feature-col"><span class="tick">✓</span></div>
       </div>
-    </section>
-
-    <section id="plans">
-      <h2 class="section-title">Free features vs Paid features</h2>
-      <div class="plans">
-        <article class="plan-card">
-          <span class="plan-badge">Free plan</span>
-          <h3 class="plan-title">Start clipping instantly</h3>
-          <ul class="plan-list">
-            <li><span class="plan-dot"></span>1 button clip creation</li>
-            <li><span class="plan-dot"></span>Upload to any platform</li>
-            <li><span class="plan-dot"></span>6 clips per day</li>
-            <li><span class="plan-dot"></span>Voice activated (OBS only)</li>
-            <li><span class="plan-dot"></span>Watermark ON</li>
-          </ul>
-          <a href="#" class="btn-primary">Try now for FREE!</a>
-        </article>
-
-        <article class="plan-card highlight">
-          <span class="plan-badge">Creator / Paid</span>
-          <h3 class="plan-title">Brand it your way</h3>
-          <ul class="plan-list">
-            <li><span class="plan-dot"></span>Custom branding</li>
-            <li><span class="plan-dot"></span>Custom transition screen</li>
-            <li><span class="plan-dot"></span>Custom fonts</li>
-            <li><span class="plan-dot"></span>Caption colour choices</li>
-            <li><span class="plan-dot"></span>Watermark removed</li>
-            <li><span class="plan-dot"></span>20 clips per day</li>
-          </ul>
-          <a href="#" class="btn-primary">Upgrade inside app →</a>
-        </article>
+      <div class="feature-row">
+        <div class="feature-name">Voice activated (OBS only)</div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+        <div class="feature-col"><span class="tick">✓</span></div>
       </div>
-    </section>
+      <div class="feature-row">
+        <div class="feature-name">6 clips per day</div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+        <div class="feature-col"><span class="cross">×</span></div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-name">Watermark ON</div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+        <div class="feature-col"><span class="cross">×</span></div>
+      </div>
 
-    <section id="legal">
-      <h2 class="section-title">Legal</h2>
-      <p><a href="/privacy.html">Privacy Policy</a> | <a href="/terms.html">Terms of Service</a></p>
-    </section>
+      <!-- paid extras -->
+      <div class="feature-row">
+        <div class="feature-name">Completely customise your branding</div>
+        <div class="feature-col"><span class="cross">×</span></div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-name">Custom transition screen</div>
+        <div class="feature-col"><span class="cross">×</span></div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-name">Use your own fonts</div>
+        <div class="feature-col"><span class="cross">×</span></div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-name">Custom caption highlight colours</div>
+        <div class="feature-col"><span class="cross">×</span></div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-name">Watermark removed</div>
+        <div class="feature-col"><span class="cross">×</span></div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-name">20 clips per day</div>
+        <div class="feature-col"><span class="cross">×</span></div>
+        <div class="feature-col"><span class="tick">✓</span></div>
+      </div>
+    </div>
+  </section>
 
-    <section id="contact">
-      <h2 class="section-title">Contact</h2>
-      <p>Email us at <a href="mailto:support@getclipped.app">support@getclipped.app</a></p>
-    </section>
-  </main>
+  <!-- LEGAL / CONTACT -->
+  <section class="legal" id="legal">
+    <p>
+      <a href="/privacy.html">Privacy Policy</a> •
+      <a href="/terms.html">Terms of Service</a> •
+      <a href="mailto:support@getclipped.app">Contact: support@getclipped.app</a>
+    </p>
+  </section>
 
   <footer>
-    <p>© <span id="year"></span> getClipped • Make clips while you're still live.</p>
-    <p><a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p>
+    © <span id="year"></span> getClipped
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
