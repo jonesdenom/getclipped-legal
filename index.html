@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>getClipped – Instant Clips While Live</title>
-  <!-- rounder font -->
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+  <title>getClipped – More Views. Zero Effort.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: radial-gradient(circle at center, #090010 0%, #040006 55%, #020003 100%);
@@ -16,43 +15,41 @@
       --green: #42ff9e;
       --red: #ff4d6a;
     }
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
       background: var(--bg);
       color: var(--text);
       font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow-x: hidden;
     }
 
-    /* top logo */
     .top-logo {
       text-align: center;
-      padding: 2.5rem 1.5rem 1rem;
+      padding: 4rem 1.5rem 2rem;
     }
     .top-logo img {
-      height: 90px;
-      max-width: 260px;
+      height: 140px;
+      max-width: 340px;
       width: auto;
-      filter: drop-shadow(0 0 18px rgba(255, 0, 200, 0.7));
+      filter: drop-shadow(0 0 25px rgba(255, 0, 200, 0.9));
     }
 
-    /* hero layout */
     .hero-wrap {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
-      width: 100%;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 2.3rem;
-      padding: 0 1.5rem 2.5rem;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 4rem;
+      padding: 0 3rem 5rem;
       align-items: start;
     }
 
     .hero-left {
-      max-width: 560px;
+      max-width: 700px;
+      padding-top: 1rem;
     }
 
     .eyebrow {
@@ -60,55 +57,56 @@
       background: rgba(255, 0, 200, 0.08);
       border: 1px solid rgba(255, 0, 200, 0.3);
       border-radius: 999px;
-      padding: 0.4rem 1.1rem;
-      font-size: 0.75rem;
+      padding: 0.6rem 1.4rem;
+      font-size: 1rem;
       text-transform: uppercase;
-      letter-spacing: 0.04rem;
-      margin-bottom: 1rem;
+      letter-spacing: 0.05rem;
+      margin-bottom: 1.5rem;
       color: #ffd6ff;
     }
 
     .hero-title {
-      font-size: clamp(2.5rem, 3.4vw, 3.1rem);
-      line-height: 1.02;
-      margin-bottom: 1.05rem;
+      font-size: clamp(3rem, 5vw, 5rem);
+      line-height: 1;
+      margin-bottom: 1.2rem;
       letter-spacing: -0.02em;
+      font-weight: 800;
     }
-
-    .hero-title span {
-      color: #ff74ff;
-    }
+    .hero-title span { color: #ff74ff; }
 
     .hero-text {
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 1.3rem;
+      line-height: 1.8;
       color: var(--muted);
-      margin-bottom: 1.1rem;
+      margin-bottom: 1.5rem;
+      max-width: 90%;
     }
 
     .hero-socials {
       display: flex;
-      gap: 0.6rem;
+      gap: 1rem;
       align-items: center;
-      margin-bottom: 1.3rem;
+      margin-bottom: 2rem;
     }
     .hero-socials span {
-      font-size: 0.65rem;
+      font-size: 1rem;
       color: rgba(255, 220, 255, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
     .social-icon {
-      width: 30px;
-      height: 30px;
-      background: rgba(0,0,0,0.15);
+      width: 48px;
+      height: 48px;
+      background: rgba(255, 0, 200, 0.08);
       border-radius: 999px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid rgba(255, 0, 200, 0.12);
+      border: 1px solid rgba(255, 0, 200, 0.2);
     }
     .social-icon img {
-      width: 18px;
-      height: 18px;
+      width: 26px;
+      height: 26px;
       display: block;
     }
 
@@ -116,151 +114,123 @@
       background: linear-gradient(90deg, #ff00c8 0%, #9b00ff 100%);
       border: 0;
       border-radius: 999px;
-      padding: 0.85rem 1.7rem;
-      font-size: 0.8rem;
-      font-weight: 700;
+      padding: 1.2rem 2.8rem;
+      font-size: 1.1rem;
+      font-weight: 800;
       color: #fff;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      box-shadow: 0 0 16px rgba(255, 0, 200, 0.5);
-      transition: transform 0.08s ease-out;
+      justify-content: center;
+      box-shadow: 0 0 25px rgba(255, 0, 200, 0.7);
+      transition: transform 0.08s ease-out, box-shadow 0.15s ease-in-out;
     }
-    .btn-primary:hover { transform: translateY(-1px); }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 35px rgba(255, 0, 200, 0.9);
+    }
 
     .hero-subnote {
-      font-size: 0.7rem;
-      color: rgba(255, 220, 255, 0.5);
-      margin-top: 0.75rem;
+      font-size: 1rem;
+      color: rgba(255, 220, 255, 0.55);
+      margin-top: 1.25rem;
     }
 
-    /* feature table on right */
     .feature-card {
       background: var(--card);
-      border: 1px solid rgba(255, 0, 200, 0.15);
-      border-radius: 18px;
-      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 0, 200, 0.25);
+      border-radius: 24px;
+      backdrop-filter: blur(12px);
       overflow: hidden;
-      min-width: 280px;
+      min-width: 320px;
+      transform: scale(1.05);
     }
     .feature-header {
       display: grid;
-      grid-template-columns: 1.1fr 0.5fr 0.5fr;
-      gap: 0.5rem;
-      padding: 0.75rem 1rem;
-      background: rgba(2, 0, 4, 0.5);
-      font-size: 0.7rem;
+      grid-template-columns: 1.2fr 0.6fr 0.6fr;
+      gap: 1rem;
+      padding: 1.3rem 1.8rem;
+      background: rgba(2, 0, 4, 0.6);
+      font-size: 1rem;
       text-transform: uppercase;
-      letter-spacing: 0.03rem;
+      letter-spacing: 0.05rem;
+      font-weight: 700;
     }
     .feature-row {
       display: grid;
-      grid-template-columns: 1.1fr 0.5fr 0.5fr;
-      gap: 0.5rem;
-      padding: 0.55rem 1rem;
+      grid-template-columns: 1.2fr 0.6fr 0.6fr;
+      gap: 1rem;
+      padding: 1rem 1.8rem;
       align-items: center;
-      font-size: 0.7rem;
-      border-bottom: 1px solid rgba(255, 0, 200, 0.03);
+      font-size: 1rem;
+      border-bottom: 1px solid rgba(255, 0, 200, 0.1);
     }
     .feature-row:last-child { border-bottom: none; }
-    .feature-name {
-      color: rgba(255, 255, 255, 0.88);
-    }
-    .feature-col {
-      text-align: center;
-    }
+    .feature-name { color: rgba(255, 255, 255, 0.9); }
+    .feature-col { text-align: center; }
     .tick, .cross {
       display: inline-flex;
-      width: 20px;
-      height: 20px;
+      width: 28px;
+      height: 28px;
       border-radius: 999px;
       align-items: center;
       justify-content: center;
-      font-size: 0.55rem;
+      font-size: 1rem;
       font-weight: 800;
     }
     .tick {
-      background: rgba(66, 255, 158, 0.12);
-      border: 1px solid rgba(66, 255, 158, 0.6);
+      background: rgba(66, 255, 158, 0.15);
+      border: 1px solid rgba(66, 255, 158, 0.7);
       color: var(--green);
     }
     .cross {
-      background: rgba(255, 77, 106, 0.12);
-      border: 1px solid rgba(255, 77, 106, 0.55);
+      background: rgba(255, 77, 106, 0.15);
+      border: 1px solid rgba(255, 77, 106, 0.6);
       color: var(--red);
     }
 
-    /* legal/footer */
     .legal {
       text-align: center;
-      padding: 1.5rem 1.5rem 2.5rem;
+      padding: 3rem 1.5rem 2rem;
       margin-top: auto;
     }
     .legal a {
       color: #ff74ff;
       text-decoration: none;
-      font-size: 0.7rem;
-      margin: 0 0.4rem;
+      font-size: 1rem;
+      margin: 0 0.6rem;
     }
     .legal a:hover { text-decoration: underline; }
+
     footer {
       text-align: center;
       padding: 0 1.5rem 2rem;
       color: rgba(255, 200, 255, 0.4);
-      font-size: 0.65rem;
+      font-size: 0.9rem;
     }
 
-    /* responsive */
     @media (max-width: 980px) {
-      .hero-wrap {
-        grid-template-columns: 1fr;
-      }
-      .feature-card {
-        max-width: 460px;
-        margin: 0 auto;
-      }
-      .hero-left {
-        text-align: center;
-        margin: 0 auto;
-      }
-      .hero-left .btn-primary {
-        justify-content: center;
-      }
-      .hero-subnote {
-        text-align: center;
-      }
-      .hero-socials {
-        justify-content: center;
-      }
-      .top-logo img {
-        height: 80px;
-      }
-    }
-    @media (max-width: 520px) {
-      .feature-header,
-      .feature-row {
-        grid-template-columns: 1fr 55px 55px;
-      }
+      .hero-wrap { grid-template-columns: 1fr; text-align: center; padding: 0 1.5rem 4rem; }
+      .hero-left { margin: 0 auto; }
+      .feature-card { margin: 3rem auto 0; transform: none; }
+      .hero-socials { justify-content: center; }
+      .top-logo img { height: 110px; }
+      .hero-title { font-size: 3rem; }
+      .hero-text { font-size: 1.1rem; margin: 1rem auto; }
     }
   </style>
 </head>
 <body>
-  <!-- bigger, central logo -->
   <div class="top-logo">
     <img src="watermark.png" alt="getClipped logo">
   </div>
 
   <div class="hero-wrap">
-    <!-- LEFT: text -->
     <div class="hero-left">
       <div class="eyebrow">streamers • creators • live</div>
-      <h1 class="hero-title">
-        CREATE INSTANT CLIPS WITH 1 BUTTON<br>
-        <span>WHILE STILL LIVE STREAMING</span>
-      </h1>
+      <h1 class="hero-title">More Views. <span>Zero Effort.</span></h1>
       <p class="hero-text">
-        Completely hands free – instantly edits your clipped moments into vertical format, adds captions and creates a hook, and gives you a preview before you upload to your socials!
+        The fastest clip creator — capture moments live and get them clipped, captioned, and ready to post within 2 minutes!
       </p>
       <div class="hero-socials">
         <span>Upload to</span>
@@ -273,91 +243,6 @@
       <div class="hero-subnote">No credit card • 6 clips/day on free • OBS voice commands</div>
     </div>
 
-    <!-- RIGHT: feature table -->
     <div class="feature-card" aria-label="Free vs Paid features">
       <div class="feature-header">
-        <div>Feature</div>
-        <div style="text-align:center;">Free</div>
-        <div style="text-align:center;">Paid</div>
-      </div>
-
-      <div class="feature-row">
-        <div class="feature-name">1 button clip creation</div>
-        <div class="feature-col"><span class="tick">✓</span></div>
-        <div class="feature-col"><span class="tick">✓</span></div>
-      </div>
-      <div class="feature-row">
-        <div class="feature-name">Upload to any platform</div>
-        <div class="feature-col"><span class="tick">✓</span></div>
-        <div class="feature-col"><span class="tick">✓</span></div>
-      </div>
-      <div class="feature-row">
-        <div class="feature-name">Voice activated (OBS only)</div>
-        <div class="feature-col"><span class="tick">✓</span></div>
-        <div class="feature-col"><span class="tick">✓</span></div>
-      </div>
-      <div class="feature-row">
-        <div class="feature-name">Uses your stream layout</div>
-        <div class="feature-col"><span class="tick">✓</span></div>
-        <div class="feature-col"><span class="tick">✓</span></div>
-      </div>
-      <div class="feature-row">
-        <div class="feature-name">6 clips per day</div>
-        <div class="feature-col"><span class="tick">✓</span></div>
-        <div class="feature-col"><span class="cross">×</span></div>
-      </div>
-      <div class="feature-row">
-        <div class="feature-name">Watermark ON</div>
-        <div class="feature-col"><span class="tick">✓</span></div>
-        <div class="feature-col"><span class="cross">×</span></div>
-      </div>
-
-      <div class="feature-row">
-        <div class="feature-name">Customise branding</div>
-        <div class="feature-col"><span class="cross">×</span></div>
-        <div class="feature-col"><span class="tick">✓</span></div>
-      </div>
-      <div class="feature-row">
-        <div class="feature-name">Custom transition screen</div>
-        <div class="feature-col"><span class="cross">×</span></div>
-        <div class="feature-col"><span class="tick">✓</span></div>
-      </div>
-      <div class="feature-row">
-        <div class="feature-name">Use your own fonts</div>
-        <div class="feature-col"><span class="cross">×</span></div>
-        <div class="feature-col"><span class="tick">✓</span></div>
-      </div>
-      <div class="feature-row">
-        <div class="feature-name">Custom caption colours</div>
-        <div class="feature-col"><span class="cross">×</span></div>
-        <div class="feature-col"><span class="tick">✓</span></div>
-      </div>
-      <div class="feature-row">
-        <div class="feature-name">Watermark removed</div>
-        <div class="feature-col"><span class="cross">×</span></div>
-        <div class="feature-col"><span class="tick">✓</span></div>
-      </div>
-      <div class="feature-row">
-        <div class="feature-name">20 clips per day</div>
-        <div class="feature-col"><span class="cross">×</span></div>
-        <div class="feature-col"><span class="tick">✓</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Legal / contact -->
-  <div class="legal">
-    <a href="/privacy.html">Privacy Policy</a> •
-    <a href="/terms.html">Terms of Service</a> •
-    <a href="mailto:support@getclipped.app">Contact: jonesdenom@gmail.com</a>
-  </div>
-  <footer>
-    © <span id="year"></span> getClipped
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
-
+        <div>Feature</div><div style="text-align:center;">Free</div><div style="
