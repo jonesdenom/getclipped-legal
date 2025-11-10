@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Successful – getClipped</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: radial-gradient(circle at center, #090010 0%, #040006 55%, #020003 100%);
+      --accent: #ff00c8;
+      --text: #fff;
+      --muted: rgba(255, 220, 255, 0.7);
+      --card: rgba(7, 0, 12, 0.45);
+      --border: rgba(255, 0, 200, 0.15);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .success-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 3rem 2rem;
+      max-width: 520px;
+      width: 100%;
+      box-shadow: 0 0 40px rgba(255, 0, 200, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .success-icon {
+      width: 90px;
+      height: 90px;
+      margin-bottom: 1.5rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, #42ff9e 0%, #00e08b 90%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+      font-size: 3rem;
+      font-weight: 800;
+      box-shadow: 0 0 25px rgba(66,255,158,0.4);
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+      color: #fff;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 1.15rem;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+    }
+
+    a.btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #ff00c8 0%, #9b00ff 100%);
+      color: #fff;
+      text-decoration: none;
+      padding: 1rem 2.2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 0 25px rgba(255, 0, 200, 0.4);
+      transition: transform 0.08s ease-out, box-shadow 0.15s ease-in-out;
+    }
+
+    a.btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 40px rgba(255, 0, 200, 0.8);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 1rem;
+      width: 100%;
+      text-align: center;
+      color: rgba(255,200,255,0.4);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 480px) {
+      .success-card {
+        padding: 2.2rem 1.5rem;
+      }
+      h1 { font-size: 1.65rem; }
+      p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="success-card">
+    <div class="success-icon">✓</div>
+    <h1>Payment Successful</h1>
+    <p>
+      Thank you, your payment was successful and your account has been upgraded to <strong>Pro</strong>!<br><br>
+      If the changes don’t apply immediately, please log out and then back in to your app.
+    </p>
+    <a href="/" class="btn">Return to Home</a>
+  </div>
+
+  <footer>© <span id="year"></span> getClipped</footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
