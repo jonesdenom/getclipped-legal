@@ -513,22 +513,71 @@
           <h2>How to use getClipped</h2>
           <div class="howto-tabs">
             <button class="howto-tab active" data-howto-target="obs">OBS Studio</button>
+            <button class="howto-tab" data-howto-target="streamlabs">Streamlabs Desktop</button>
+            <button class="howto-tab" data-howto-target="aitum">Aitum Vertical</button>
+            <button class="howto-tab" data-howto-target="paid">Using Paid Features</button>
           </div>
+
+          <!-- OBS -->
           <div id="howto-obs" class="howto-content active">
             <div class="howto-video">
-              <iframe src="https://www.youtube.com/embed/Bv-rg9cLJhg" title="OBS Studio setup with getClipped" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/oxXipa-RRSA" title="How to use with OBS Studio" allowfullscreen></iframe>
             </div>
             <p>
-              This is a one-time setup. The goal is to make sure getClipped and OBS Studio both save recordings/replays to the exact same folders.
+              Set up OBS to drop replays/recordings into the same folder your desktop app watches, then clip and upload directly.
             </p>
             <ol>
-              <li>In the getClipped app, go to <strong>Settings → Recording & Replay Folders</strong> and set your recording folder to the same one OBS uses.</li>
-              <li>In OBS Studio, under <strong>Output → Recording → Recording Path</strong> pick that same folder.</li>
-              <li>Do the same for Replay Buffer (for most people this is the exact same folder).</li>
-              <li>Make sure OBS Replay Buffer is enabled and running (blue highlight). Set the max replay time to however long you want your clips (up to 120s).</li>
-              <li>Start clipping — every replay/short recording that lands in that folder will be auto-edited and show up in your getClipped app to preview and upload.</li>
+              <li>In getClipped desktop, note your replay/recording folder in Settings.</li>
+              <li>In OBS → Output → Recording, set the Recording Path to that same folder.</li>
+              <li>Enable Replay Buffer in OBS (set duration to the clip length you want).</li>
+              <li>While live, save a replay — it will appear inside your desktop app ready to process.</li>
             </ol>
-            <p><strong>Optional (recommended):</strong> set up OBS hotkeys for “Save Replay” / “Start-Stop Recording” so it’s truly 1-button.</p>
+          </div>
+
+          <!-- Streamlabs -->
+          <div id="howto-streamlabs" class="howto-content">
+            <div class="howto-video">
+              <iframe src="https://www.youtube.com/embed/ErkbV-ZwdTM" title="How to use with Streamlabs Desktop" allowfullscreen></iframe>
+            </div>
+            <p>
+              Streamlabs Desktop can do the same thing — just point Streamlabs recordings to the same folder.
+            </p>
+            <ol>
+              <li>Open Streamlabs → Settings → Output → Recording and set the path to your getClipped folder.</li>
+              <li>Make a test recording while streaming.</li>
+              <li>Open the desktop app → Upload tab and you should see the clip ready.</li>
+            </ol>
+          </div>
+
+          <!-- Aitum -->
+          <div id="howto-aitum" class="howto-content">
+            <div class="howto-video">
+              <iframe src="https://www.youtube.com/embed/oX2cmPYsxb8" title="How to use with Aitum Vertical" allowfullscreen></iframe>
+            </div>
+            <p>
+              Aitum Vertical already gives you vertical capture — this shows how to feed those captures into getClipped.
+            </p>
+            <ol>
+              <li>Export your Aitum Vertical capture to the watched folder.</li>
+              <li>Open getClipped desktop.</li>
+              <li>Choose the new file to process and upload to TikTok, Shorts or Reels.</li>
+            </ol>
+          </div>
+
+          <!-- Paid Features -->
+          <div id="howto-paid" class="howto-content">
+            <div class="howto-video">
+              <iframe src="https://www.youtube.com/embed/75_8em1WvGc" title="Using Paid Features in getClipped" allowfullscreen></iframe>
+            </div>
+            <p>
+              Paid users can add their own branding, transitions and caption colours directly inside the desktop app.
+            </p>
+            <ol>
+              <li>In the desktop app, go to <strong>Settings → Branding / Stinger</strong>.</li>
+              <li>Upload your own transition/stinger.</li>
+              <li>Set custom caption colours and fonts.</li>
+              <li>Process another clip and your branding will be baked in automatically.</li>
+            </ol>
           </div>
         </div>
       </div>
@@ -594,7 +643,7 @@
       });
     });
 
-    // how-to tabs (ready for more later)
+    // how-to tabs
     const howtoTabs = document.querySelectorAll(".howto-tab");
     const howtoContents = document.querySelectorAll(".howto-content");
 
