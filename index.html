@@ -100,7 +100,7 @@
       margin-bottom: 2.5rem;
     }
     #home .top-logo img {
-      height: 230px;
+      height: 260px;
       max-width: 560px;
       width: auto;
       filter: drop-shadow(0 0 30px rgba(255, 0, 200, 0.9));
@@ -118,12 +118,12 @@
 
     .platform-icons {
       display: flex;
-      gap: 1.8rem;
+      gap: 2.2rem;
       justify-content: center;
-      margin-bottom: 2.1rem;
+      margin-bottom: 2.4rem;
     }
     .platform-icons img {
-      height: 70px;
+      height: 90px;
       width: auto;
       filter: drop-shadow(0 0 8px rgba(255, 0, 200, 0.55));
       transition: transform 0.15s ease, filter 0.2s ease;
@@ -134,45 +134,46 @@
     }
 
     .hero-title {
-      font-size: clamp(3.6rem, 6.3vw, 6rem);
-      line-height: 1.03;
-      margin-bottom: 1.7rem;
+      font-size: clamp(4.5rem, 7.5vw, 7rem);
+      line-height: 1.18;
+      margin-bottom: 2rem;
       font-weight: 800;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.04em;
     }
     .hero-title span { color: #ff74ff; }
 
     .hero-text {
-      font-size: 1.55rem;
-      line-height: 1.85;
+      font-size: 1.9rem;
+      line-height: 1.95;
       color: var(--muted);
-      margin-bottom: 2rem;
-      max-width: 850px;
+      margin-bottom: 2.4rem;
+      max-width: 900px;
+      letter-spacing: 0.03em;
     }
 
     .hero-socials {
       display: flex;
-      gap: 1.3rem;
+      gap: 1.6rem;
       align-items: center;
       justify-content: center;
-      margin-bottom: 2.8rem;
+      margin-bottom: 3rem;
     }
     .hero-socials span {
-      font-size: 1.05rem;
+      font-size: 1.25rem;
       color: rgba(255, 220, 255, 0.4);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
     }
     .hero-grow {
-      font-size: 1.05rem;
+      font-size: 1.25rem;
       color: rgba(255, 220, 255, 0.9);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
       margin-left: 0.8rem;
     }
     .social-icon {
-      width: 64px;
-      height: 64px;
+      width: 80px;
+      height: 80px;
       background: rgba(255, 0, 200, 0.08);
       border-radius: 999px;
       display: flex;
@@ -181,8 +182,8 @@
       border: 1px solid rgba(255, 0, 200, 0.2);
     }
     .social-icon img {
-      width: 34px;
-      height: 34px;
+      width: 40px;
+      height: 40px;
       display: block;
     }
 
@@ -190,8 +191,8 @@
       background: linear-gradient(90deg, #ff00c8 0%, #9b00ff 100%);
       border: 0;
       border-radius: 999px;
-      padding: 1.6rem 3.6rem;
-      font-size: 1.35rem;
+      padding: 1.8rem 4.2rem;
+      font-size: 1.6rem;
       font-weight: 800;
       color: #fff;
       text-decoration: none;
@@ -207,9 +208,10 @@
     }
 
     .hero-subnote {
-      font-size: 1.05rem;
+      font-size: 1.2rem;
       color: rgba(255, 220, 255, 0.55);
-      margin-top: 1.6rem;
+      margin-top: 2rem;
+      letter-spacing: 0.08em;
     }
 
     /* sections below hero */
@@ -661,7 +663,7 @@
         howtoTabs.forEach(t => t.classList.remove("active"));
         tab.classList.add("active");
         howtoContents.forEach(c => {
-          c.classList.remove("active");
+          c.classList.remove("active"));
           if (c.id === "howto-" + target) {
             c.classList.add("active");
           }
