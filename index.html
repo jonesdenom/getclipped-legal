@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>getClipped – More Views. Zero Effort.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: radial-gradient(circle at center, #090010 0%, #040006 55%, #020003 100%);
@@ -20,10 +20,15 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Luckiest Guy", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       min-height: 100vh;
       display: flex;
       overflow-x: hidden;
+      text-shadow:
+        -2px -2px 0 #000,
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000;
     }
 
     /* ===== sidebar ===== */
@@ -157,6 +162,13 @@
       color: rgba(255, 220, 255, 0.4);
       text-transform: uppercase;
       letter-spacing: 0.05em;
+    }
+    .hero-grow {
+      font-size: 1.05rem;
+      color: rgba(255, 220, 255, 0.9);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-left: 0.8rem;
     }
     .social-icon {
       width: 64px;
@@ -423,9 +435,10 @@
           <div class="social-icon"><img src="instagram.svg" alt="Instagram"></div>
           <div class="social-icon"><img src="youtube.svg" alt="YouTube"></div>
           <div class="social-icon"><img src="tiktok.svg" alt="TikTok"></div>
+          <span class="hero-grow">Grow your channels</span>
         </div>
         <a href="#" class="btn-primary">TRY NOW FOR FREE</a>
-        <div class="hero-subnote">No credit card • 6 clips/day on free • OBS voice commands</div>
+        <div class="hero-subnote">No credit card • 6 clips/day on free</div>
       </div>
     </section>
 
