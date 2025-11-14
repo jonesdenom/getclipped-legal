@@ -141,11 +141,18 @@
       letter-spacing: 0.04em;
     }
     .hero-title span { color: #ff74ff; }
+    .hero-title .hero-make,
+    .hero-title .hero-shorts {
+      color: #ff005e; /* match 'Clipped' pink */
+    }
+    .hero-title .hero-instant {
+      color: #ffffff;
+    }
 
     .hero-text {
       font-size: 1.9rem;
       line-height: 1.95;
-      color: var(--muted);
+      color: #ffffff; /* same white as 'INSTANT' */
       margin-bottom: 2.4rem;
       max-width: 900px;
       letter-spacing: 0.03em;
@@ -427,9 +434,13 @@
           <img src="youtube.svg" alt="YouTube">
           <img src="tiktok.svg" alt="TikTok">
         </div>
-        <h1 class="hero-title">MAKE INSTANT SHORTS! 
+        <h1 class="hero-title">
+          <span class="hero-make">MAKE</span>
+          <span class="hero-instant">INSTANT</span>
+          <span class="hero-shorts">SHORTS!</span>
+        </h1>
         <p class="hero-text">
-         SUPER EASY: 1 BUTTON CLIPPING MACHINE!
+          SUPER EASY: 1 BUTTON CLIPPING MACHINE!
         </p>
         <div class="hero-socials">
           <span>Upload to</span>
@@ -663,7 +674,7 @@
         howtoTabs.forEach(t => t.classList.remove("active"));
         tab.classList.add("active");
         howtoContents.forEach(c => {
-          c.classList.remove("active"));
+          c.classList.remove("active");
           if (c.id === "howto-" + target) {
             c.classList.add("active");
           }
@@ -673,4 +684,3 @@
   </script>
 </body>
 </html>
-
