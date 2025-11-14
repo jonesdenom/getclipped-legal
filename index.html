@@ -111,15 +111,26 @@
       margin: 0 auto;
       padding: 0 3.4rem;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      text-align: center;
+      justify-content: space-between;
+      gap: 3rem;
+      text-align: left;
+    }
+
+    .hero-left {
+      flex: 1;
+    }
+
+    .hero-right {
+      flex: 0 0 360px;
+      display: flex;
+      justify-content: center;
     }
 
     .platform-icons {
       display: flex;
       gap: 2.2rem;
-      justify-content: center;
+      justify-content: flex-start;
       margin-bottom: 2.4rem;
     }
     .platform-icons img {
@@ -162,7 +173,7 @@
       display: flex;
       gap: 1.6rem;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       margin-bottom: 3rem;
     }
     .hero-socials span {
@@ -219,6 +230,20 @@
       color: rgba(255, 220, 255, 0.55);
       margin-top: 2rem;
       letter-spacing: 0.08em;
+    }
+
+    .hero-video-vertical {
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 9 / 16;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(255,0,200,0.2);
+    }
+    .hero-video-vertical iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     /* sections below hero */
@@ -394,7 +419,18 @@
         padding-bottom: 4rem;
       }
       #home .top-logo img { height: 170px; }
-      .hero-wrap,
+      .hero-wrap {
+        padding: 0 1.4rem;
+        max-width: 100%;
+        flex-direction: column;
+      }
+      .hero-left {
+        width: 100%;
+      }
+      .hero-right {
+        width: 100%;
+        margin-top: 2rem;
+      }
       .page-section { padding: 0 1.4rem; max-width: 100%; }
       .feature-table th:nth-child(2),
       .feature-table th:nth-child(3),
@@ -428,30 +464,37 @@
         <img src="watermark.png" alt="getClipped logo">
       </div>
       <div class="hero-wrap">
-        <div class="platform-icons">
-          <img src="twitch.svg" alt="Twitch">
-          <img src="kick-streaming-platform-logo-icon.svg" alt="Kick">
-          <img src="youtube.svg" alt="YouTube">
-          <img src="tiktok.svg" alt="TikTok">
+        <div class="hero-left">
+          <div class="platform-icons">
+            <img src="twitch.svg" alt="Twitch">
+            <img src="kick-streaming-platform-logo-icon.svg" alt="Kick">
+            <img src="youtube.svg" alt="YouTube">
+            <img src="tiktok.svg" alt="TikTok">
+          </div>
+          <h1 class="hero-title">
+            <span class="hero-make">MAKE</span>
+            <span class="hero-instant">INSTANT</span>
+            <span class="hero-shorts">SHORTS!</span>
+          </h1>
+          <p class="hero-text">
+            SUPER EASY: 1 BUTTON CLIPPING MACHINE!
+          </p>
+          <div class="hero-socials">
+            <span>Upload to</span>
+            <div class="social-icon"><img src="x.svg" alt="X / Twitter"></div>
+            <div class="social-icon"><img src="instagram.svg" alt="Instagram"></div>
+            <div class="social-icon"><img src="youtube.svg" alt="YouTube"></div>
+            <div class="social-icon"><img src="tiktok.svg" alt="TikTok"></div>
+            <span class="hero-grow">Grow your channels</span>
+          </div>
+          <a href="https://github.com/jonesdenom/getClippedApp/releases/download/v1.0.0/getclipped-electron-app-Setup-1.0.0.exe" class="btn-primary" download>TRY NOW FOR FREE</a>
+          <div class="hero-subnote">No credit card • 6 clips/day on free</div>
         </div>
-        <h1 class="hero-title">
-          <span class="hero-make">MAKE</span>
-          <span class="hero-instant">INSTANT</span>
-          <span class="hero-shorts">SHORTS!</span>
-        </h1>
-        <p class="hero-text">
-          SUPER EASY: 1 BUTTON CLIPPING MACHINE!
-        </p>
-        <div class="hero-socials">
-          <span>Upload to</span>
-          <div class="social-icon"><img src="x.svg" alt="X / Twitter"></div>
-          <div class="social-icon"><img src="instagram.svg" alt="Instagram"></div>
-          <div class="social-icon"><img src="youtube.svg" alt="YouTube"></div>
-          <div class="social-icon"><img src="tiktok.svg" alt="TikTok"></div>
-          <span class="hero-grow">Grow your channels</span>
+        <div class="hero-right">
+          <div class="hero-video-vertical">
+            <iframe src="https://www.youtube.com/embed/WpxbLy0HJQ8" title="getClipped demo" allowfullscreen></iframe>
+          </div>
         </div>
-        <a href="https://github.com/jonesdenom/getClippedApp/releases/download/v1.0.0/getclipped-electron-app-Setup-1.0.0.exe" class="btn-primary" download>TRY NOW FOR FREE</a>
-        <div class="hero-subnote">No credit card • 6 clips/day on free</div>
       </div>
     </section>
 
