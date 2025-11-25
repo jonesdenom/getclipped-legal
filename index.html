@@ -619,7 +619,6 @@
     </div>
     <button class="side-link active" data-target="#home">Home</button>
     <button class="side-link" data-target="#features">Features</button>
-    <button class="side-link" data-target="#howto">How to use</button>
     <button class="side-link" data-target="#upgrade">Upgrade</button>
     <div class="sidebar-spacer"></div>
     <div class="sidebar-footer">© <span id="year-side"></span> GETCLIPPED</div>
@@ -672,16 +671,8 @@
             <div class="social-icon"><img src="tiktok.svg" alt="TikTok"></div>
             <span class="hero-grow">Grow your channels</span>
           </div>
-          <!-- SAME DOWNLOAD LINK -->
-          <a
-            href="https://github.com/jonesdenom/getClippedApp/releases/latest/download/getclipped-electron-app-Setup.exe"
-            class="btn-primary"
-            download
-          >
-            Try now for free
-          </a>
           <div class="hero-subnote">
-            No credit card • 6 clips / day on free plan
+            WEB APP COMING SOON – JOIN THE DISCORD ABOVE TO GET UPDATES
           </div>
         </div>
         <div class="hero-right">
@@ -765,85 +756,6 @@
       </div>
     </section>
 
-    <!-- HOW TO USE -->
-    <section id="howto" class="section-full">
-      <div class="page-section">
-        <div class="section-card">
-          <h2>How to use getClipped</h2>
-          <p>Connect your streaming setup once, then clip and publish in a few clicks.</p>
-
-          <div class="howto-tabs">
-            <button class="howto-tab active" data-howto-target="obs">OBS Studio</button>
-            <button class="howto-tab" data-howto-target="streamlabs">Streamlabs Desktop</button>
-            <button class="howto-tab" data-howto-target="aitum">Aitum Vertical</button>
-            <button class="howto-tab" data-howto-target="paid">Paid Features</button>
-          </div>
-
-          <!-- OBS -->
-          <div id="howto-obs" class="howto-content active">
-            <div class="howto-video">
-              <iframe src="https://www.youtube.com/embed/oxXipa-RRSA" title="How to use with OBS Studio" allowfullscreen></iframe>
-            </div>
-            <p>
-              Set OBS to drop replays into the same folder your desktop app watches, then clip and upload directly.
-            </p>
-            <ol>
-              <li>In getClipped desktop, note your replay / recording folder in <strong>Settings</strong>.</li>
-              <li>In OBS → <strong>Output → Recording</strong>, set the Recording Path to that same folder.</li>
-              <li>Enable <strong>Replay Buffer</strong> in OBS (set duration to your desired clip length).</li>
-              <li>While live, save a replay — it will appear inside getClipped ready to process.</li>
-            </ol>
-          </div>
-
-          <!-- Streamlabs -->
-          <div id="howto-streamlabs" class="howto-content">
-            <div class="howto-video">
-              <iframe src="https://www.youtube.com/embed/ErkbV-ZwdTM" title="How to use with Streamlabs Desktop" allowfullscreen></iframe>
-            </div>
-            <p>
-              Streamlabs Desktop works the same way — just point recordings to your getClipped folder.
-            </p>
-            <ol>
-              <li>Open Streamlabs → <strong>Settings → Output → Recording</strong> and set the path to your getClipped folder.</li>
-              <li>Make a short test recording while streaming.</li>
-              <li>Open the desktop app → <strong>Upload</strong> tab and confirm the clip appears.</li>
-            </ol>
-          </div>
-
-          <!-- Aitum -->
-          <div id="howto-aitum" class="howto-content">
-            <div class="howto-video">
-              <iframe src="https://www.youtube.com/embed/oX2cmPYsxb8" title="How to use with Aitum Vertical" allowfullscreen></iframe>
-            </div>
-            <p>
-              Aitum Vertical already handles vertical capture — this shows how to feed those captures into getClipped.
-            </p>
-            <ol>
-              <li>Export your Aitum Vertical capture to the watched folder configured in getClipped.</li>
-              <li>Open getClipped desktop.</li>
-              <li>Select the new file and process it into a TikTok, Reel or Short.</li>
-            </ol>
-          </div>
-
-          <!-- Paid Features -->
-          <div id="howto-paid" class="howto-content">
-            <div class="howto-video">
-              <iframe src="https://www.youtube.com/embed/75_8em1WvGc" title="Using Paid Features in getClipped" allowfullscreen></iframe>
-            </div>
-            <p>
-              Paid users can add their own branding, transitions and caption colours directly inside the desktop app.
-            </p>
-            <ol>
-              <li>In the desktop app, go to <strong>Settings → Branding / Stinger</strong>.</li>
-              <li>Upload your own transition or stinger file.</li>
-              <li>Set custom caption colours and fonts to match your channel identity.</li>
-              <li>Process another clip — your branding is now baked in automatically.</li>
-            </ol>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- UPGRADE -->
     <section id="upgrade" class="section-full">
       <div class="page-section">
@@ -878,7 +790,7 @@
     document.getElementById("year-side").textContent = year;
 
     const links = document.querySelectorAll(".side-link");
-    const sections = ["#home", "#features", "#howto", "#upgrade"].map(sel => document.querySelector(sel));
+    const sections = ["#home", "#features", "#upgrade"].map(sel => document.querySelector(sel));
 
     links.forEach(link => {
       link.addEventListener("click", () => {
