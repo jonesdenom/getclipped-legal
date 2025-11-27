@@ -327,7 +327,6 @@
       display: block;
     }
 
-    /* sections below hero */
     .page-section {
       max-width: 1280px;
       margin: 0 auto;
@@ -358,145 +357,6 @@
       color: var(--muted);
       font-size: 0.98rem;
       margin-bottom: 0.75rem;
-    }
-
-    /* feature table styles */
-    .feature-table {
-      overflow-x: auto;
-      margin-top: 1.2rem;
-    }
-
-    .feature-table table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.95rem;
-    }
-
-    .feature-table th,
-    .feature-table td {
-      padding: 0.85rem 0.9rem;
-      border-bottom: 1px solid rgba(255, 0, 200, 0.14);
-    }
-
-    .feature-table th {
-      text-align: left;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #ffbaff;
-      font-size: 0.78rem;
-      border-bottom: 2px solid rgba(255, 0, 200, 0.3);
-      background: rgba(10, 0, 24, 0.6);
-    }
-
-    .feature-table td {
-      color: rgba(255, 220, 255, 0.88);
-    }
-
-    .feature-table th:nth-child(2),
-    .feature-table th:nth-child(3),
-    .feature-table td:nth-child(2),
-    .feature-table td:nth-child(3) {
-      text-align: center;
-      width: 96px;
-      white-space: nowrap;
-    }
-
-    .feature-table .tick {
-      color: #42ff9e;
-      font-weight: 800;
-      font-size: 1.1rem;
-    }
-
-    .feature-table .cross {
-      color: #ff4d6a;
-      font-weight: 800;
-      font-size: 1.1rem;
-    }
-
-    .feature-table .text-value {
-      color: #ffbaff;
-      font-weight: 700;
-      font-size: 1rem;
-    }
-
-    /* how-to tabs */
-    .howto-tabs {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 1.4rem;
-      flex-wrap: wrap;
-    }
-
-    .howto-tab {
-      background: rgba(10, 0, 24, 0.9);
-      border: 1px solid rgba(255, 0, 200, 0.15);
-      color: #fff;
-      border-radius: 999px;
-      padding: 0.45rem 1.2rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: 0.14s ease-out;
-      font-size: 0.88rem;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-
-    .howto-tab.active {
-      background: radial-gradient(circle, rgba(255, 0, 200, 0.9) 0%, rgba(155, 0, 255, 0.5) 70%);
-      border-color: rgba(255, 0, 200, 0.95);
-      box-shadow: 0 0 14px rgba(255, 0, 200, 0.5);
-    }
-
-    .howto-content {
-      display: none;
-      margin-top: 0.8rem;
-    }
-
-    .howto-content.active {
-      display: block;
-    }
-
-    .howto-content ol {
-      margin-left: 1.1rem;
-      margin-top: 0.9rem;
-    }
-
-    .howto-content li {
-      margin-bottom: 0.9rem;
-      color: rgba(255, 220, 255, 0.86);
-      line-height: 1.55;
-      font-size: 0.96rem;
-    }
-
-    /* video */
-    .howto-video {
-      width: 100%;
-      max-width: 780px;
-      margin: 0 auto 1.5rem;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: var(--shadow-soft);
-      aspect-ratio: 16/9;
-      border: 1px solid rgba(255, 0, 200, 0.18);
-      background: radial-gradient(circle at top, rgba(255, 0, 200, 0.12), rgba(0, 0, 0, 0.9));
-    }
-
-    .howto-video iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    /* upgrade list */
-    #upgrade ul {
-      margin: 0.6rem 0 1.2rem 1.1rem;
-      color: var(--muted);
-      font-size: 0.96rem;
-      line-height: 1.6;
-    }
-
-    #upgrade li {
-      margin-bottom: 0.35rem;
     }
 
     .legal {
@@ -597,17 +457,6 @@
         padding: 0 1.4rem;
         max-width: 100%;
       }
-
-      .feature-table th:nth-child(2),
-      .feature-table th:nth-child(3),
-      .feature-table td:nth-child(2),
-      .feature-table td:nth-child(3) {
-        width: 72px;
-      }
-
-      .howto-tabs {
-        flex-wrap: wrap;
-      }
     }
   </style>
 </head>
@@ -618,28 +467,24 @@
       <img src="watermark.png" alt="getClipped logo">
     </div>
     <button class="side-link active" data-target="#home">Home</button>
-    <button class="side-link" data-target="#features">Features</button>
-    <button class="side-link" data-target="#upgrade">Upgrade</button>
     <div class="sidebar-spacer"></div>
     <div class="sidebar-footer">© <span id="year-side"></span> GETCLIPPED</div>
   </aside>
 
   <!-- main -->
   <main class="main">
-    <div style="background: rgba(255,0,200,0.2); color: #ffd7ff; text-align: center; padding: 1rem 1.4rem; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid rgba(255,0,200,0.5);">
-      CURRENTLY IN TESTING PHASE, FEEL FREE TO TRY, MAY WORK WELL FOR SOME AND NOT OTHERS, ALL FEEDBACK GREATLY APPRECIATED!
-    </div>
-<div style="text-align:center; margin:1.4rem 0 2rem;">
-  <a href="https://discord.gg/qUngKsYZ" target="_blank" rel="noopener noreferrer"
-     style="display:inline-flex; align-items:center; gap:0.6rem; padding:0.75rem 1.4rem;
-            background:rgba(88,101,242,0.18); border:1px solid rgba(88,101,242,0.4);
-            border-radius:14px; backdrop-filter:blur(6px); color:#dfe1ff;
-            font-weight:600; font-size:0.95rem; letter-spacing:0.04em;">
-    <img src="discord-icon.svg" alt="Discord" style="width:28px; height:28px;">
-    Join the Discord to give feedback, ask questions or get help!
-  </a>
-</div>
+    <!-- testing banner removed -->
 
+    <div style="text-align:center; margin:1.4rem 0 2rem;">
+      <a href="https://discord.gg/qUngKsYZ" target="_blank" rel="noopener noreferrer"
+         style="display:inline-flex; align-items:center; gap:0.6rem; padding:0.75rem 1.4rem;
+                background:rgba(88,101,242,0.18); border:1px solid rgba(88,101,242,0.4);
+                border-radius:14px; backdrop-filter:blur(6px); color:#dfe1ff;
+                font-weight:600; font-size:0.95rem; letter-spacing:0.04em;">
+        <img src="discord-icon.svg" alt="Discord" style="width:28px; height:28px;">
+        Join the Discord to give feedback, ask questions or get help!
+      </a>
+    </div>
 
     <!-- HOME -->
     <section id="home" class="section-full">
@@ -672,7 +517,14 @@
             <span class="hero-grow">Grow your channels</span>
           </div>
           <div class="hero-subnote">
-            WEB APP COMING SOON – JOIN THE DISCORD ABOVE TO GET UPDATES
+            <a
+              href="https://app.getclipped.uk/#/login"
+              class="btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get Started
+            </a>
           </div>
         </div>
         <div class="hero-right">
@@ -683,97 +535,7 @@
       </div>
     </section>
 
-    <!-- FEATURES -->
-    <section id="features" class="section-full">
-      <div class="page-section">
-        <div class="section-card">
-          <h2>Features</h2>
-          <p>Everything you need to turn streams into scroll-stopping short-form content, without leaving your desktop.</p>
-          <div class="feature-table">
-            <table>
-              <thead>
-                <tr>
-                  <th>Feature</th>
-                  <th>Free</th>
-                  <th>Paid (£18.99)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1-button clips while live streaming</td>
-                  <td class="tick">✓</td>
-                  <td class="tick">✓</td>
-                </tr>
-                <tr>
-                  <td>Automatic vertical format (TikTok, Reels, Shorts)</td>
-                  <td class="tick">✓</td>
-                  <td class="tick">✓</td>
-                </tr>
-                <tr>
-                  <td>Captions, hook & stinger transition baked in</td>
-                  <td class="tick">✓</td>
-                  <td class="tick">✓</td>
-                </tr>
-                <tr>
-                  <td>Uses your personalised stream layout</td>
-                  <td class="tick">✓</td>
-                  <td class="tick">✓</td>
-                </tr>
-                <tr>
-                  <td>Export / upload straight to socials from the app</td>
-                  <td class="tick">✓</td>
-                  <td class="tick">✓</td>
-                </tr>
-                <tr>
-                  <td>Clips per day</td>
-                  <td class="text-value">6</td>
-                  <td class="text-value">20</td>
-                </tr>
-                <tr>
-                  <td>Custom fonts</td>
-                  <td class="cross">×</td>
-                  <td class="tick">✓</td>
-                </tr>
-                <tr>
-                  <td>Custom transition / stinger for branding</td>
-                  <td class="cross">×</td>
-                  <td class="tick">✓</td>
-                </tr>
-                <tr>
-                  <td>Custom caption highlight colours</td>
-                  <td class="cross">×</td>
-                  <td class="tick">✓</td>
-                </tr>
-                <tr>
-                  <td>No watermark</td>
-                  <td class="cross">×</td>
-                  <td class="tick">✓</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- UPGRADE -->
-    <section id="upgrade" class="section-full">
-      <div class="page-section">
-        <div class="section-card">
-          <h2>Upgrade</h2>
-          <p>Unlock the full workflow for creators posting short-form content every day.</p>
-          <ul>
-            <li>Remove watermark on all exports.</li>
-            <li>Increase from 6 to 20 clips per day.</li>
-            <li>Custom branding: fonts, transitions, overlays.</li>
-            <li>Custom caption highlight colours that match your channel.</li>
-          </ul>
-          <p>
-            Designed for streamers who treat short-form like a second channel, not an afterthought.
-          </p>
-        </div>
-      </div>
-    </section>
+    <!-- Features and Upgrade sections removed -->
 
     <div class="legal">
       <a href="/privacy.html">Privacy Policy</a> •
@@ -790,7 +552,7 @@
     document.getElementById("year-side").textContent = year;
 
     const links = document.querySelectorAll(".side-link");
-    const sections = ["#home", "#features", "#upgrade"].map(sel => document.querySelector(sel));
+    const sections = [document.querySelector("#home")];
 
     links.forEach(link => {
       link.addEventListener("click", () => {
@@ -818,7 +580,7 @@
       });
     });
 
-    // how-to tabs
+    // how-to tabs (no-op now, but safe to keep)
     const howtoTabs = document.querySelectorAll(".howto-tab");
     const howtoContents = document.querySelectorAll(".howto-content");
 
