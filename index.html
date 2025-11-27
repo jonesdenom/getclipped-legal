@@ -32,7 +32,7 @@
 
     html {
       scroll-behavior: smooth;
-      font-size: 20px; /* scaled up to feel like ~125% zoom */
+      font-size: 20px; /* base desktop scale */
     }
 
     body {
@@ -138,7 +138,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 2.5rem 0;
+      padding: clamp(1.4rem, 4vh, 2.5rem) 0;
     }
 
     /* top logo */
@@ -167,6 +167,7 @@
 
     .hero-left {
       flex: 1;
+      min-width: 0;
     }
 
     .hero-right {
@@ -312,6 +313,7 @@
     .hero-video-vertical {
       width: 100%;
       max-width: 340px;
+      max-height: 70vh;
       aspect-ratio: 9 / 16;
       border-radius: 24px;
       overflow: hidden;
@@ -384,6 +386,70 @@
       font-size: 0.78rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
+    }
+
+    /* Height-based responsiveness so hero fits more cleanly on short viewports */
+    @media (max-height: 750px) {
+      html {
+        font-size: 18px;
+      }
+
+      #home .top-logo img {
+        height: 140px;
+      }
+
+      .hero-wrap {
+        gap: 2.2rem;
+      }
+
+      .hero-text {
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-socials {
+        margin-bottom: 1.7rem;
+      }
+
+      .hero-video-vertical {
+        max-height: 62vh;
+      }
+    }
+
+    @media (max-height: 620px) {
+      html {
+        font-size: 16px;
+      }
+
+      .section-full {
+        justify-content: flex-start;
+        padding-top: 1.2rem;
+        padding-bottom: 1.4rem;
+      }
+
+      #home .top-logo {
+        margin-bottom: 0.8rem;
+      }
+
+      #home .top-logo img {
+        height: 120px;
+      }
+
+      .hero-title {
+        font-size: clamp(2rem, 4vw, 2.4rem);
+        margin-bottom: 0.9rem;
+      }
+
+      .hero-text {
+        margin-bottom: 1.2rem;
+      }
+
+      .hero-socials {
+        margin-bottom: 1.3rem;
+      }
+
+      .hero-video-vertical {
+        max-height: 58vh;
+      }
     }
 
     /* mobile */
@@ -506,7 +572,7 @@
           </h1>
           <p class="hero-text">
             <span>Turn your livestream into daily short-form content</span> with a one-button clipping workflow.
-            getClipped handles the vertical crop, captions and transitions automatically.
+            getClipped handles the vertical crop, captions, webcam placement and  optional hook transitions automatically.
           </p>
           <div class="hero-socials">
             <span>Optimised for</span>
@@ -520,8 +586,6 @@
             <a
               href="https://app.getclipped.uk/#/login"
               class="btn-primary"
-              target="_blank"
-              rel="noopener noreferrer"
             >
               Get Started
             </a>
@@ -540,7 +604,7 @@
     <div class="legal">
       <a href="/privacy.html">Privacy Policy</a> •
       <a href="/terms.html">Terms of Service</a> •
-      <a href="mailto:jonesdenom@gmail.com">Contact: jonesdenom@gmail.com</a>
+      <a href="mailto:getclippedapp@outlook.com">Contact: getclippedapp@outlook.com</a>
     </div>
 
     <footer>© <span id="year"></span> GETCLIPPED</footer>
